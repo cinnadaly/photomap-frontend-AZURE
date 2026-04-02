@@ -33,84 +33,84 @@ function App() {
       .catch(() => setIsAuthenticated(false));
   }, []);*/
   useEffect(() => {
-  fetch("http://localhost:5555/me", {
-    credentials: "include"
-  })
-    .then(res => {
-      if (!res.ok) {
-        setIsAuthenticated(false);
-        return null;
-      }
-      return res.json();
+    fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
+      credentials: "include"
     })
-    .then(data => {
-      if (data) {
-        setUser(data);
-        setIsAuthenticated(true);
-      }
-    })
-    .catch(() => setIsAuthenticated(false));
-}, []);
+      .then(res => {
+        if (!res.ok) {
+          setIsAuthenticated(false);
+          return null;
+        }
+        return res.json();
+      })
+      .then(data => {
+        if (data) {
+          setUser(data);
+          setIsAuthenticated(true);
+        }
+      })
+      .catch(() => setIsAuthenticated(false));
+  }, []);
 
   const handleLogout = async () => {
-    fetch('http://localhost:5555/logout', {
-          method: 'POST',
-          credentials: 'include',
-        })
-        .then((response) => {
-          if(response.ok){
-            setIsAuthenticated(false);
-            navigate("/login");
-          }
-        })
-        .catch((error) => console.log("error to login " + error));
+    fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.netlogout', {
+      method: 'POST',
+      credentials: 'include',
+    })
+      .then((response) => {
+        if (response.ok) {
+          setIsAuthenticated(false);
+          navigate("/login");
+        }
+      })
+      .catch((error) => console.log("error to login " + error));
   }
 
   return (
-  <>
+    <>
 
       <>
         <header>
           <img src={logo} className='logo' alt="" />
           <nav>
-              {isAuthenticated && (
-                <>
-                  <Link to="/"><a>Map</a></Link>{' '}
-                  <Link to="/dashboard">Dashboard</Link>
-                  <Link to="/profile"><a>Profile</a></Link>{' '}
-                  <Link onClick={handleLogout}>Logout</Link>
-                </>
-              )}
+            {isAuthenticated && (
+              <>
+                <Link to="/"><a>Map</a></Link>{' '}
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/profile"><a>Profile</a></Link>{' '}
+                <Link onClick={handleLogout}>Logout</Link>
+              </>
+            )}
           </nav>
         </header>
-        
+
         {/* The Routes component ensures only one route is rendered at a time */}
         <Routes>
           <Route exact path="/" element={
-              <ProtectedRoute>
-                <Home user={user}/>
-              </ProtectedRoute>
+            <ProtectedRoute>
+              <Home user={user} />
+            </ProtectedRoute>
           } />
-          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>} />
-          <Route path="/dashboard" 
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />} />
+          <Route path="/dashboard"
             element={
               <ProtectedRoute>
-                <Dashboard user={user}/> 
-              </ProtectedRoute> 
+                <Dashboard user={user} />
+              </ProtectedRoute>
             }
           />
 
           <Route path="/profile"
-          element={
+            element={
               <ProtectedRoute>
-                <Profile user={user}/>
+                <Profile user={user} />
               </ProtectedRoute>
-          }/>
+            } />
 
         </Routes>
       </>
-      
-  </>
+
+    </>
 
   );
 }

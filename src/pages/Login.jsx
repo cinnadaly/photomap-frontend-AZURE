@@ -39,7 +39,7 @@ function Login({ setIsAuthenticated, setUser }) {
     })
 
     if (response.ok) {
-      const userRes = await fetch("http://localhost:5555/me", {
+      const userRes = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
         credentials: "include"
       })
       const userData = await userRes.json();
