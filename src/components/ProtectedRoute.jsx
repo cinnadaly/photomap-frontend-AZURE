@@ -5,7 +5,7 @@ function ProtectedRoute({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5555/dashboard", {
+    fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/dashboard", {
       credentials: "include"
     })
       .then(res => {

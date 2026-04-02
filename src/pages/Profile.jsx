@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomeMap from '../components/HomeMap';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import '../components/HomeMap.css';
 
-function Profile({user}){
+function Profile({ user }) {
 
     const handleDeleteAccount = () => {
         console.log("account deleted fake")
@@ -13,15 +13,15 @@ function Profile({user}){
         const data = Object.fromEntries(formData);
         console.log(data)
         // Server-side logic or client-side logic in a Transition
-        const response = await fetch(`http://localhost:5555/users/${user.id}`, {
-        method: 'PUT', 
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json', // 2. Tell the server to expect JSON
-        },
-        // 3. Stringify the object for the body
-        body: JSON.stringify(data),
-        
+        const response = await fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/${user.id}`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json', // 2. Tell the server to expect JSON
+            },
+            // 3. Stringify the object for the body
+            body: JSON.stringify(data),
+
         })
 
         if (response.ok) {
@@ -36,7 +36,7 @@ function Profile({user}){
     }
 
     return (
-      <div className='home-component'>
+        <div className='home-component'>
             <div class="profile-wrapper">
                 <div class="profile-card p-4">
 
@@ -48,30 +48,30 @@ function Profile({user}){
                         <div class="section-title">Edit Profile</div>
 
                         <form onSubmit={async (e) => {
-                                e.preventDefault();
-                                const formData = new FormData(e.target);
-                                await myAction(formData);
-                            }}>
+                            e.preventDefault();
+                            const formData = new FormData(e.target);
+                            await myAction(formData);
+                        }}>
 
                             <div class="row mb-3">
                                 <div class="col">
-                                    <input name='name' type="text" class="form-control" placeholder="Name"/>
+                                    <input name='name' type="text" class="form-control" placeholder="Name" />
                                 </div>
                                 <div class="col">
-                                    <input name='lastname' type="text" class="form-control" placeholder="Lastname"/>
+                                    <input name='lastname' type="text" class="form-control" placeholder="Lastname" />
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <input name='email' type="email" class="form-control" placeholder="Email"/>
+                                <input name='email' type="email" class="form-control" placeholder="Email" />
                             </div>
 
                             <div class="mb-3">
-                                <input name='username' type="text" class="form-control" placeholder="Username"/>
+                                <input name='username' type="text" class="form-control" placeholder="Username" />
                             </div>
 
                             <div class="mb-3">
-                                <input name='password' type="password" class="form-control" placeholder="New Password"/>
+                                <input name='password' type="password" class="form-control" placeholder="New Password" />
                             </div>
 
                             <button type="submit" class="btn btn-dark w-100">
@@ -88,8 +88,8 @@ function Profile({user}){
                     </div>
                 </div>
             </div>
-      </div>
+        </div>
     );
-  }
+}
 
 export default Profile
