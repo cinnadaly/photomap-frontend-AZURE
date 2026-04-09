@@ -53,7 +53,7 @@ function App() {
   }, []);
 
   const handleLogout = async () => {
-    fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.netlogout', {
+    fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/logout', {
       method: 'POST',
       credentials: 'include',
     })
@@ -94,9 +94,9 @@ function App() {
           <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />} />
           <Route path="/dashboard"
             element={
-              <ProtectedRoute>
+              
                 <Dashboard user={user} />
-              </ProtectedRoute>
+
             }
           />
 

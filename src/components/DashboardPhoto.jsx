@@ -4,7 +4,7 @@ import '../components/HomeMap.css';
 
 function DashboardPhoto({photo, onDelete}){
 
-  const BASE_URL = 'http://localhost:5555';
+  const BASE_URL = 'https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net';
 
     return (
         <figure className="figure py-2 mx-2 rounded">
