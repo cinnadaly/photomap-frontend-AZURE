@@ -46,7 +46,7 @@ function Login({ setIsAuthenticated, setUser }) {
       setUser(userData);
 
       setIsAuthenticated(true);
-
+      console.log("logged in");
       navigate("/dashboard");
     } else {
       alert("Login failed");

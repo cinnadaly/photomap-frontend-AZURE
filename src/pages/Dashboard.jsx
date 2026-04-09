@@ -10,7 +10,7 @@ function Dashboard() {
 
     //delete image
     const handleRemovePhoto = async (id) => {
-        await fetch(`https://red-pond-09feece1e.2.azurestaticapps.net//photos/${id}`, {
+        await fetch(`https://red-pond-09feece1e.2.azurestaticapps.net/photos/${id}`, {
             method: "DELETE",
             credentials: "include",
         });
@@ -46,7 +46,7 @@ function Dashboard() {
         formData.append("title", title);
         formData.append("description", description);
         try {
-            const response = await fetch("https://red-pond-09feece1e.2.azurestaticapps.net//photos", {
+            const response = await fetch("https://red-pond-09feece1e.2.azurestaticapps.net/photos", {
                 method: "POST",
                 credentials: "include",
                 body: formData,
