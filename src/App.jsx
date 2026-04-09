@@ -12,7 +12,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { useNavigate } from "react-router-dom";
 
 function App() {
-
   const navigate = useNavigate();
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
