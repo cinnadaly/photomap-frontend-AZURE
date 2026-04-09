@@ -9,6 +9,7 @@ function ProtectedRoute({ children }) {
       credentials: "include"
     })
       .then(res => {
+        console.log("STATUS:", res.status); //debug
         if (res.ok) {
           setIsAuthenticated(true);
         } else {
