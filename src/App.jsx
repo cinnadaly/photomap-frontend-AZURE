@@ -87,9 +87,9 @@ function App() {
         {/* The Routes component ensures only one route is rendered at a time */}
         <Routes>
           <Route exact path="/" element={
-            <ProtectedRoute>
+
               <Home user={user} />
-            </ProtectedRoute>
+
           } />
           <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />} />
           <Route path="/dashboard"
@@ -102,9 +102,9 @@ function App() {
 
           <Route path="/profile"
             element={
-              <ProtectedRoute>
+
                 <Profile user={user} />
-              </ProtectedRoute>
+
             } />
 
         </Routes>
