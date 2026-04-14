@@ -24,7 +24,7 @@ function Dashboard() {
     const [userID, setUserID] = useState(1);//this will be for logged user
 
     useEffect(() => {
-        fetch("https://red-pond-09feece1e.2.azurestaticapps.net/", {
+        fetch("https://red-pond-09feece1e.2.azurestaticapps.net/photos", {
             credentials: "include",
         })
             .then((response) => {
