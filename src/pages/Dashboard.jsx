@@ -10,7 +10,7 @@ function Dashboard() {
 
     //delete image
     const handleRemovePhoto = async (id) => {
-        await fetch(`https://red-pond-09feece1e.2.azurestaticapps.net/photos/${id}`, {
+        await fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/${id}`, {
             method: "DELETE",
             credentials: "include",
         });
@@ -24,7 +24,7 @@ function Dashboard() {
     const [userID, setUserID] = useState(1);//this will be for logged user
 
     useEffect(() => {
-        fetch("https://red-pond-09feece1e.2.azurestaticapps.net/photos", {
+        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
             credentials: "include",
         })
             .then((response) => {
@@ -46,7 +46,7 @@ function Dashboard() {
         formData.append("title", title);
         formData.append("description", description);
         try {
-            const response = await fetch("https://red-pond-09feece1e.2.azurestaticapps.net/photos", {
+            const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
                 method: "POST",
                 credentials: "include",
                 body: formData,
