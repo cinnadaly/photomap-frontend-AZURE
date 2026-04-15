@@ -83,11 +83,10 @@ function Dashboard() {
                 </div>
                 <div className="row d-flex justify-content-center">
                     {
-
-                        /*photos.map((photo) => (
+                        photos.map((photo) => (
                             <DashboardPhoto key={photo.id} photo={photo} onDelete={handleRemovePhoto} />
-                        ))*/
-                       console.log(photos)
+                        ))
+                       //console.log(photos)
                     }
                 </div>
             </div>
