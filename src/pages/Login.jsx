@@ -72,7 +72,7 @@ function Login({ setIsAuthenticated, setUser }) {
                     <input type="text" name="username" id="disabledTextInput" class="form-control" placeholder="username" />
                   </div>
                   <div class="mb-3">
-                    <input type="text" name="password" id="disabledTextInput" class="form-control" placeholder="password" />
+                    <input type="password" name="password" id="disabledTextInput" class="form-control" placeholder="password" />
                   </div>
                   <button type="submit" class="btn btn-primary">Login</button>
                 </fieldset>
