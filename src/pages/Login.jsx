@@ -6,9 +6,6 @@ function Login({ setIsAuthenticated, setUser }) {
 
   const navigate = useNavigate();
 
-  //TO HIDE PASSWORD
-  const [ShowPassword, setShowPassword] = useState(false);
-
   // The action function can be async
   /*const getAll = async () => {
     const response = await fetch('http://localhost:5555/users', {
@@ -42,11 +39,12 @@ function Login({ setIsAuthenticated, setUser }) {
     })
 
     if (response.ok) {
+      /*
       const userRes = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
         credentials: "include"
       })
       const userData = await userRes.json();
-      setUser(userData);
+      setUser(userData);*/
 
       setIsAuthenticated(true);
       console.log("logged in");
@@ -74,21 +72,8 @@ function Login({ setIsAuthenticated, setUser }) {
                     <input type="text" name="username" id="disabledTextInput" class="form-control" placeholder="username" />
                   </div>
                   <div class="mb-3">
-                    <input type={showPassword ? "text" : "password"} name="password" id="disabledTextInput" class="form-control" placeholder="password" />
+                    <input type="text" name="password" id="disabledTextInput" class="form-control" placeholder="password" />
                   </div>
-
-                  <div className="form-check mt-2">
-                    <input
-                      type="checkbox"
-                      className="form-check-input"
-                      id="showPassword"
-                      onChange={() => setShowPassword(!showPassword)}
-                    />
-                    <label className="form-check-label" htmlFor="showPassword">
-                      Show my password
-                    </label>
-                  </div>
-
                   <button type="submit" class="btn btn-primary">Login</button>
                 </fieldset>
               </form>
