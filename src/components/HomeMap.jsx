@@ -88,7 +88,7 @@ export default function HomeMap(){
 
     return (
         <div className='map-container'>
-            <APIProvider apiKey={import.meta.env.REACT_APP_GOOGLE_MAP_API_KEY}>
+            <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
                 {currentPosition && (
                     <>
                     <Map
