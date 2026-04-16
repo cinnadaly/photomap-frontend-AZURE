@@ -57,9 +57,10 @@ function App() {
       credentials: 'include',
     })
       .then((response) => {
+        console.log(response)
         if (response.ok) {
           setIsAuthenticated(false);
-          navigate("/login");
+          //navigate("/login");
         }
       })
       .catch((error) => console.log("error to login " + error));
