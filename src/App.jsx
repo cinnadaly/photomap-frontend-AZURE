@@ -44,13 +44,34 @@ function App() {
       })
       .then(data => {
         if (data) {
-          setUser(data);
+          setUser(data.data); //ORIGINAL -> setUser(data);
           setIsAuthenticated(true);
         }
       })
       .catch(() => setIsAuthenticated(false));
   }, []);
 
+  //logout attempt
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+      if (response.ok) {
+        console.log(response)
+        setIsAuthenticated(false);
+        setUser(null);
+        navigate("/login");
+      }
+    }
+    catch (error) {
+      console.log("error to logout " + error);
+    }
+  };
+
+
+  /* COMMENTED FOR TESTING
   const handleLogout = async () => {
     fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/logout', {
       method: 'POST',
@@ -64,7 +85,7 @@ function App() {
         }
       })
       .catch((error) => console.log("error to login " + error));
-  }
+  } */
 
   return (
     <>
@@ -78,7 +99,7 @@ function App() {
                 <Link to="/"><a>Map</a></Link>{' '}
                 <Link to="/dashboard">Dashboard</Link>
                 <Link to="/profile"><a>Profile</a></Link>{' '}
-                <Link onClick={handleLogout}>Logout</Link>
+                <button onClick={handleLogout}>Logout</button>
               </>
             )}
           </nav>
@@ -94,17 +115,17 @@ function App() {
           <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />} />
           <Route path="/dashboard"
             element={
-              
+              <ProtectedRoute>
                 <Dashboard user={user} />
-
+              </ProtectedRoute>
             }
           />
 
           <Route path="/profile"
             element={
-
+              <ProtectedRoute>
                 <Profile user={user} />
-
+              </ProtectedRoute>
             } />
 
         </Routes>
