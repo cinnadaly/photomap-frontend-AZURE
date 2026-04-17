@@ -99,7 +99,7 @@ function App() {
                 <Link to="/"><a>Map</a></Link>{' '}
                 <Link to="/dashboard">Dashboard</Link>
                 <Link to="/profile"><a>Profile</a></Link>{' '}
-                <button onClick={handleLogout}>Logout</button>
+                <Link onClick={handleLogout}>Logout</Link>
               </>
             )}
           </nav>
