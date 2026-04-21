@@ -6,9 +6,9 @@ function DashboardPhoto({ photo, onDelete }) {
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
     return (
-        <figure className="figure py-2 mx-2 rounded ">
+        <figure className="figure py-2 mx-2">
           <div d-flex justify-content-center align-items-center>
-            <div className="figure-img img-fluid rounded" alt="..." 
+            <div className="figure-img img-fluid" alt="..." 
               style={{
                 backgroundImage: `url(${photo.imagePath})`,
                 backgroundSize: "cover",
@@ -40,7 +40,20 @@ function DashboardPhoto({ photo, onDelete }) {
                   </button>
                 </h2>
                 <div id={photo.id + "collapse"} class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item’s accordion body.</div>
+
+                  <div class="accordion-body">
+                    <ul class="list-group list-group-flush">
+                      {
+                        photo.reviews.map((review)=> {
+                          <li class="list-group-item">
+                            <h5>Comment: {review.Comment}</h5>
+                            <h5>Rating: {review.Rating}</h5>
+                          </li>
+                        })
+                      }
+                    </ul>
+                  </div>
+
                 </div>
               </div>
 
