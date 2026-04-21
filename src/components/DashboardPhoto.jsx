@@ -18,8 +18,8 @@ function DashboardPhoto({ photo, onDelete }) {
               }}></div>
             <div className="figure-content d-flex justify-content-start align-items-center">
               <div className="figure-sub-content">
-                <figcaption className="figure-caption">{photo.title}</figcaption>
-                <p className="figure-caption">{photo.description}</p>
+                <h5 className="figure-caption">{photo.title}</h5>
+                <h6 className="figure-caption">{photo.description}</h6>
               </div>
               {currentUser && photo.userID === currentUser.id && (
                 <button
@@ -36,7 +36,7 @@ function DashboardPhoto({ photo, onDelete }) {
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#"+photo.id + "collapse"} aria-expanded="false" aria-controls="flush-collapseOne">
-                    Reviews
+                    <h6>Reviews</h6>
                   </button>
                 </h2>
                 <div id={photo.id + "collapse"} class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -46,10 +46,10 @@ function DashboardPhoto({ photo, onDelete }) {
                       {
                         //console.log(photo.reviews)
                         photo.reviews.map((review)=> {
-                          return (<li class="list-group-item">
-                            <h5>Comment: {review.Comment}</h5>
-                            <h5>Rating: {review.Rating}</h5>
-                          </li>);
+                          return (<li class="list-group-item d-flex justify-content-start">
+                                    <h6>Comment: {review.Comment}</h6>
+                                    <h6>Rating: {review.Rating}</h6>
+                                  </li>);
                         })
                       }
                     </ul>
