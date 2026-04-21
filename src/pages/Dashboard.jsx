@@ -25,7 +25,7 @@ function Dashboard() {
     const [reviewData, setReviewData] = useState(null);
 
     useEffect(() => {
-        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
+        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/reviews", {
             credentials: "include",
         })
             .then((response) => {
@@ -61,7 +61,7 @@ function Dashboard() {
         formData.append("title", title);
         formData.append("description", description);
         try {
-            const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/reviews", {
+            const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
                 method: "POST",
                 credentials: "include",
                 body: formData,
