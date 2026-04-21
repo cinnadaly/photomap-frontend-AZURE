@@ -17,16 +17,23 @@ function DashboardPhoto({ photo, onDelete }) {
                 width: "100%"
               }}></div>
             <div className="figure-content ">
-              <div className="figure-sub-content d-flex justify-content-start align-items-start">
+              <div className="figure-sub-content d-flex flex-column align-items-start">
                 <h3 className="figure-caption">{photo.title}</h3>
                 <h6 className="figure-caption">{photo.description}</h6>
               </div>
               {currentUser && photo.userID === currentUser.id && (
-                <button
-                  onClick={() => onDelete(photo.id)}
-                  className="btn btn-dark mt-2">
-                  Delete
-                </button>
+                <>
+                  <button
+                    onClick={() => onDelete(photo.id)}
+                    className="btn-absolute-custom mt-2">
+                    <i class="bi bi-x-circle-fill"></i>
+                  </button>
+                  <button
+                    onClick={() => onEdit(photo.id)}
+                    className="btn-absolute-custom mt-2">
+                    <i class="bi bi-pen-fill"></i>
+                  </button>
+                </>
               )}
             </div>
           </div>
