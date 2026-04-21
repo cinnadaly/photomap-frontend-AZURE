@@ -22,7 +22,7 @@ function DashboardPhoto({ photo, onDelete }) {
       formData.append("locationID", locationID);
       formData.append("rating", rating);//rating hardcoded
       formData.append("userID", userID);
-      console.log([comment, locationID, 5, userID]);
+      console.log([comment, locationID, rating, userID]);
       /*
       try {
           const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
@@ -70,6 +70,7 @@ function DashboardPhoto({ photo, onDelete }) {
                             <div className="row d-flex justify-content-center">
                                 <div className="col-12 col-lg-5 ">
                                     <input className='form-control from-control-lg my-1' type="text" placeholder="Comment" name='comment' onChange={(e)=>setComment(e.target.value)} required />
+                                    <>br</>
                                     <div className='starReviewContainer d-flex'>
                                       <i class="bi bi-star" onClick={() => setRating(1)}></i>
                                       <i class="bi bi-star" onClick={() => setRating(2)}></i>
@@ -77,7 +78,8 @@ function DashboardPhoto({ photo, onDelete }) {
                                       <i class="bi bi-star" onClick={() => setRating(4)}></i>
                                       <i class="bi bi-star" onClick={() => setRating(5)}></i>
                                     </div>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <>br</>
+                                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
