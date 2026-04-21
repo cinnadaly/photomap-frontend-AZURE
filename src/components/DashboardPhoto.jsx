@@ -21,12 +21,12 @@ function DashboardPhoto({ photo, onDelete }) {
                 <div className="position-absolute">
                   <button
                     onClick={() => onEdit(photo.id)}
-                    className="btn-edit-custom mt-2 bg-light-subtle">
+                    className="btn-edit-custom mt-2 bg-none">
                     <i class="bi bi-pen-fill"></i>
                   </button>
                   <button
                     onClick={() => onDelete(photo.id)}
-                    className="btn-absolute-custom mt-2 bg-light-subtle">
+                    className="btn-absolute-custom mt-2 bg-none">
                     <i class="bi bi-x-circle-fill"></i>
                   </button>
                 </div>
