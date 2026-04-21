@@ -3,10 +3,36 @@ import HomeMap from '../components/HomeMap';
 import { useState, useEffect } from 'react';
 import '../components/HomeMap.css';
 
-function Profile({ user }) {
+function Profile() {
+
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/me", {
+            method: "GET",
+            credentials: "include"
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("Error");
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log("User:", data);
+                setUser(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
+            });
+    }, []);
 
     const handleDeleteAccount = () => {
-        console.log("account deleted fake")
+        console.log("account deleted")
     }
 
     const myAction = async (formData) => {
@@ -29,10 +55,13 @@ function Profile({ user }) {
         }
     };
 
+    if (loading) {
+        return <p>Loafing...</p>
+    }
 
     //to prevent from not loading user logged data
     if (!user) {
-        return <p>Loading...</p>;
+        return <p>Unable to load user</p>;
     }
 
     return (
