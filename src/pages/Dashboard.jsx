@@ -3,9 +3,11 @@ import HomeMap from '../components/HomeMap';
 import DashboardPhoto from '../components/DashboardPhoto';
 import '../components/HomeMap.css';
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
 
+    const navigate = useNavigate();
     const [photos, setPhotos] = useState([]);
 
     //delete image
