@@ -29,6 +29,7 @@ function DashboardPhoto({ photo, onDelete }) {
             )}
           </div>
         </figure>
+
     );
   }
 
