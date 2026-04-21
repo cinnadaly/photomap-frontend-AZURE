@@ -200,6 +200,7 @@ export default function HomeMap(){
                                                 for (let i = 0; i < 3; i++) {
                                                     rows.push(<i class="bi bi-star-fill"></i>);
                                                 }
+                                                console.log(selRev);
 
                                                 return rows;
                                             })()
