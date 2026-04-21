@@ -64,7 +64,6 @@ function Profile() {
 
         if (response.ok) {
             Swal.fire({
-                position: "top-end",
                 icon: "success",
                 title: "User Updated!",
                 showConfirmButton: false,

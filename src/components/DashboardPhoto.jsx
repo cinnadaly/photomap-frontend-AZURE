@@ -34,6 +34,13 @@ function DashboardPhoto({ photo, onDelete }) {
           const data = await response.json();
           console.log(data);
 
+          Swal.fire({
+              icon: "success",
+              title: "Comment added!",
+              showConfirmButton: false,
+              timer: 1000
+          });;
+
       } catch (error) {
           console.error("Error:", error);
       }*/
@@ -54,7 +61,7 @@ function DashboardPhoto({ photo, onDelete }) {
               {currentUser && photo.userID === currentUser.id && (
                 <div className="position-absolute">
 
-                  <button onClick={() => {setLocationID(photo.locationID), setUserID(currentUser.id)}} type="button" className="btn btn-dark top-0 right-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button onClick={() => {setLocationID(photo.locationID), setUserID(currentUser.id)}} type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Add comment
                   </button>
 
@@ -92,8 +99,8 @@ function DashboardPhoto({ photo, onDelete }) {
 
                   <button
                     onClick={() => onDelete(photo.id)}
-                    className="position-absolute btn btn-dark top-0 right-0">
-                    <i class="bi bi-x-circle-fill"></i>
+                    className="position-absolute btn btn-dark top-0 m-1">
+                    <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               )}
