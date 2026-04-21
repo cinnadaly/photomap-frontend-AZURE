@@ -18,7 +18,7 @@ function DashboardPhoto({ photo, onDelete }) {
               }}></div>
             <div className="figure-content d-flex justify-content-start align-items-center">
               <div className="figure-sub-content">
-                <h5 className="figure-caption">{photo.title}</h5>
+                <h4 className="figure-caption">{photo.title}</h4>
                 <h6 className="figure-caption">{photo.description}</h6>
               </div>
               {currentUser && photo.userID === currentUser.id && (
@@ -46,7 +46,7 @@ function DashboardPhoto({ photo, onDelete }) {
                       {
                         //console.log(photo.reviews)
                         photo.reviews.map((review)=> {
-                          return (<li class="list-group-item d-flex justify-content-start">
+                          return (<li class="list-group-item d-flex flex-column align-items-start">
                                     <h6>Comment: {review.Comment}</h6>
                                     <h6>Rating: {review.Rating}</h6>
                                   </li>);
