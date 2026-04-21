@@ -146,7 +146,7 @@ export default function HomeMap(){
                         />
                         ))}
 
-                        {selectedLocation && (
+                        {selectedLocation && selectedLocationReview && (
                             <InfoWindow
                                 position={{
                                 lat: Number(selectedLocation.lat),
