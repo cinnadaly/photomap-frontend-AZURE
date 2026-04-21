@@ -44,7 +44,7 @@ function DashboardPhoto({ photo, onDelete }) {
                   <div class="accordion-body">
                     <ul class="list-group list-group-flush">
                       {
-                        console.log(photo.review)/*
+                        console.log(photo.reviews)/*
                         photo.reviews.map((review)=> {
                           <li class="list-group-item">
                             <h5>Comment: {review.Comment}</h5>
