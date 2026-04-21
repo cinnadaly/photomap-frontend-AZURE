@@ -92,7 +92,7 @@ function DashboardPhoto({ photo, onDelete }) {
 
                   <button
                     onClick={() => onDelete(photo.id)}
-                    className="btn-absolute-custom mt-2 bg-none">
+                    className="position-absolute btn btn-dark mt-2">
                     <i class="bi bi-x-circle-fill"></i>
                   </button>
                 </div>
