@@ -6,15 +6,24 @@ import '../components/HomeMap.css';
 function Profile() {
 
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    const [formData, setFormData] = useState({
+        name: "",
+        lastname: "",
+        email: "",
+        username: "",
+        password: ""
+    });
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/me", {
+        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
             method: "GET",
             credentials: "include"
         })
             .then(res => {
+                console.log("STATUS:", res.status);
                 if (!res.ok) {
                     throw new Error("Error");
                 }
@@ -23,6 +32,13 @@ function Profile() {
             .then(data => {
                 console.log("User:", data);
                 setUser(data);
+                setFormData({
+                    name: data.name || "",
+                    lastname: data.lastname || "",
+                    email: data.email || "",
+                    username: data.username || "",
+                    password: ""
+                });
                 setLoading(false);
             })
             .catch(err => {
@@ -34,6 +50,13 @@ function Profile() {
     const handleDeleteAccount = () => {
         console.log("account deleted")
     }
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
 
     const myAction = async (formData) => {
         const data = Object.fromEntries(formData);
@@ -84,23 +107,28 @@ function Profile() {
 
                             <div class="row mb-3">
                                 <div class="col">
-                                    <input name='name' type="text" class="form-control" placeholder="Name" />
+                                    <input name='name' type="text" value={formData.name}
+                                        onChange={handleChange} className="form-control" />
                                 </div>
                                 <div class="col">
-                                    <input name='lastname' type="text" class="form-control" placeholder="Lastname" />
+                                    <input name='lastname' type="text" value={formData.lastname}
+                                        onChange={handleChange} className="form-control" />
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <input name='email' type="email" class="form-control" placeholder="Email" />
+                                <input name='email' type="email" value={formData.email}
+                                    onChange={handleChange} className="form-control" />
                             </div>
 
                             <div class="mb-3">
-                                <input name='username' type="text" class="form-control" placeholder="Username" />
+                                <input name='username' type="text" value={formData.username}
+                                    onChange={handleChange} className="form-control" />
                             </div>
 
                             <div class="mb-3">
-                                <input name='password' type="password" class="form-control" placeholder="New Password" />
+                                <input name='password' type="password" value={formData.password}
+                                    onChange={handleChange} className="form-control" />
                             </div>
 
                             <button type="submit" class="btn btn-dark w-100">
