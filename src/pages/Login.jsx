@@ -39,12 +39,10 @@ function Login({ setIsAuthenticated, setUser }) {
     })
 
     if (response.ok) {
-      /*
-      const userRes = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
-        credentials: "include"
-      })
-      const userData = await userRes.json();
-      setUser(userData);*/
+      //test
+      const data = await response.json();
+
+      localStorage.setItem("user", JSON.stringify(data.user)); //test
 
       setIsAuthenticated(true);
       console.log("logged in");

@@ -17,55 +17,31 @@ function Profile() {
     });
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
-            method: "GET",
-            credentials: "include"
-        })
-            .then(res => {
-                console.log("STATUS:", res.status);
-                if (!res.ok) {
-                    throw new Error("Error");
-                }
-                return res.json();
-            })
-            .then(meData => {
-                console.log("ME:", meData);
+        const savedUser = localStorage.getItem("user");
 
-                return fetch(
-                    `https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/${meData.id}`,
-                    {
-                        method: "GET",
-                        credentials: "include"
-                    }
-                );
-            })
-            .then(res => {
-                if (!res.ok) throw new Error("Error /users/id");
-                return res.json();
-            })
-            .then(userRes => {
-                console.log("FULL USER:", userRes);
+        if (savedUser) {
+            const parsedUser = JSON.parse(savedUser);
 
-                const fullUser = userRes.data;
+            setUser(parsedUser);
 
-                setUser(fullUser);
-
-                setFormData({
-                    name: fullUser.name || "",
-                    lastname: fullUser.lastname || "",
-                    email: fullUser.email || "",
-                    username: fullUser.username || "",
-                    password: ""
-                });
-
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error(err);
-                setLoading(false);
+            setFormData({
+                name: parsedUser.name || "",
+                lastname: parsedUser.lastname || "",
+                email: parsedUser.email || "",
+                username: parsedUser.username || "",
+                password: ""
             });
+        }
+
+        setLoading(false);
     }, []);
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
 
     const myAction = async () => {
         const dataToSend = { ...formData };
@@ -88,7 +64,19 @@ function Profile() {
 
         if (response.ok) {
             alert("user updated");
+
+            const updatedUser = { ...user, ...dataToSend };
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+            setUser(updatedUser);
+        } else {
+            const error = await response.json();
+            console.error(error);
+            alert("Error updating user");
         }
+    };
+
+    const handleDeleteAccount = () => {
+        console.log("account deleted");
     };
 
     if (loading) {
@@ -96,7 +84,11 @@ function Profile() {
     }
 
     if (!user) {
-        return <p>Unable to load user</p>;
+        return <p>No user found</p>;
+    }
+    if (!user?.id) {
+        alert("Invalid user");
+        return;
     }
 
     return (
@@ -119,28 +111,33 @@ function Profile() {
                             <div className="row mb-3">
                                 <div className="col">
                                     <input name='name' value={formData.name}
-                                        onChange={handleChange} className="form-control" />
+                                        onChange={handleChange} className="form-control" placeholder="Name"
+                                    />
                                 </div>
                                 <div className="col">
                                     <input name='lastname' value={formData.lastname}
-                                        onChange={handleChange} className="form-control" />
+                                        onChange={handleChange} className="form-control" placeholder="Lastname"
+                                    />
                                 </div>
                             </div>
 
                             <div className="mb-3">
                                 <input name='email' value={formData.email}
-                                    onChange={handleChange} className="form-control" />
+                                    onChange={handleChange} className="form-control" placeholder="Email"
+                                />
                             </div>
 
                             <div className="mb-3">
                                 <input name='username' value={formData.username}
-                                    onChange={handleChange} className="form-control" />
+                                    onChange={handleChange} className="form-control" placeholder="Username"
+                                />
                             </div>
 
                             <div className="mb-3">
                                 <input name='password' type="password"
                                     value={formData.password}
-                                    onChange={handleChange} className="form-control" />
+                                    onChange={handleChange} className="form-control" placeholder="Password"
+                                />
                             </div>
 
                             <button type="submit" className="btn btn-dark w-100">
