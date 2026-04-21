@@ -128,7 +128,7 @@ export default function HomeMap(){
                                     {
                                         credentials: "include"
                                     });
-                                    const reviewData = await response.json();
+                                    const reviewData = await reviewsRes.json();
                                     setPhotos(reviewData.data);
                                     console.log(reviewData, "review data");
 
