@@ -22,6 +22,7 @@ function Dashboard() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [userID, setUserID] = useState(1);//this will be for logged user
+    const [reviewData, setReviewData] = useState(null);
 
     useEffect(() => {
         fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
@@ -36,6 +37,20 @@ function Dashboard() {
             })
             .catch((err) => console.log(err))
     }, [])
+/*
+    useEffect(() => {
+        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/locations", {
+            credentials: "include",
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+                reviewData(data.data)
+            })
+            .catch((err) => console.log(err))
+    }, [])*/
 
     //insert of a new photo file
     const handleSubmit = async (e) => {
@@ -46,7 +61,7 @@ function Dashboard() {
         formData.append("title", title);
         formData.append("description", description);
         try {
-            const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
+            const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/reviews", {
                 method: "POST",
                 credentials: "include",
                 body: formData,
