@@ -4,13 +4,11 @@ import '../components/HomeMap.css';
 
 function DashboardPhoto({photo, onDelete}){
 
-  const BASE_URL = 'https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net';
-
     return (
         <figure className="figure py-2 mx-2 rounded">
           <div className="figure-img img-fluid rounded" alt="..." 
             style={{
-              backgroundImage: `url(${BASE_URL}/uploads/${photo.imagePath})`,
+              backgroundImage: `url(${photo.imagePath})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               height: "250px",
