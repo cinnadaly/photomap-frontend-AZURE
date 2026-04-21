@@ -165,7 +165,7 @@ export default function HomeMap(){
                                             >
                                             <div
                                                 style={{
-                                                    backgroundImage: `url(${BASE_URL}/uploads/${photo.imagePath})`,
+                                                    backgroundImage: `url(${photo.imagePath})`,
                                                     backgroundSize: "cover",
                                                     backgroundPosition: "center",
                                                     height: "200px",
