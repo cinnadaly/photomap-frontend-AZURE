@@ -215,6 +215,7 @@ export default function HomeMap(){
                                             })()
 
                                         }
+                                        { <h3><> </>selectedLocationReview.location.avgRating</h3>}
                                     </div>
                                     <p><strong>Lat:</strong> {selectedLocation.lat}</p>
                                     <p><strong>Lng:</strong> {selectedLocation.lng}</p>
