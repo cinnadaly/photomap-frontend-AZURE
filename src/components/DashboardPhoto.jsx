@@ -16,9 +16,9 @@ function DashboardPhoto({ photo, onDelete }) {
                 height: "250px",
                 width: "100%"
               }}></div>
-            <div className="figure-content d-flex justify-content-start align-items-center">
+            <div className="figure-content d-flex justify-content-start align-items-start">
               <div className="figure-sub-content">
-                <h4 className="figure-caption">{photo.title}</h4>
+                <h3 className="figure-caption">{photo.title}</h3>
                 <h6 className="figure-caption">{photo.description}</h6>
               </div>
               {currentUser && photo.userID === currentUser.id && (
