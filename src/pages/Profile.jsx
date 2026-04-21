@@ -29,16 +29,36 @@ function Profile() {
                 }
                 return res.json();
             })
-            .then(data => {
-                console.log("User:", data);
-                setUser(data);
+            .then(meData => {
+                console.log("ME:", meData);
+
+                return fetch(
+                    `https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/${meData.id}`,
+                    {
+                        method: "GET",
+                        credentials: "include"
+                    }
+                );
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Error /users/id");
+                return res.json();
+            })
+            .then(userRes => {
+                console.log("FULL USER:", userRes);
+
+                const fullUser = userRes.data;
+
+                setUser(fullUser);
+
                 setFormData({
-                    name: data.name || "",
-                    lastname: data.lastname || "",
-                    email: data.email || "",
-                    username: data.username || "",
+                    name: fullUser.name || "",
+                    lastname: fullUser.lastname || "",
+                    email: fullUser.email || "",
+                    username: fullUser.username || "",
                     password: ""
                 });
+
                 setLoading(false);
             })
             .catch(err => {
@@ -46,17 +66,6 @@ function Profile() {
                 setLoading(false);
             });
     }, []);
-
-    const handleDeleteAccount = () => {
-        console.log("account deleted")
-    };
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
 
     const myAction = async () => {
         const dataToSend = { ...formData };
