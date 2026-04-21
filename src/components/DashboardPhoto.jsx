@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomeMap from '../components/HomeMap';
 import '../components/HomeMap.css';
-import useState from "React";
+import {useState, useEffect} from "React";
 
 
 function DashboardPhoto({ photo, onDelete }) {
