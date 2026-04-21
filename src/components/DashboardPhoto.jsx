@@ -54,7 +54,7 @@ function DashboardPhoto({ photo, onDelete }) {
               {currentUser && photo.userID === currentUser.id && (
                 <div className="position-absolute">
 
-                  <button onClick={() => {setLocationID(photo.locationID), setUserID(currentUser.id)}} type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button onClick={() => {setLocationID(photo.locationID), setUserID(currentUser.id)}} type="button" className="btn btn-dark top-0 right-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Add comment
                   </button>
 
@@ -92,7 +92,7 @@ function DashboardPhoto({ photo, onDelete }) {
 
                   <button
                     onClick={() => onDelete(photo.id)}
-                    className="position-absolute btn btn-dark mt-2">
+                    className="position-absolute btn btn-dark top-0 right-0">
                     <i class="bi bi-x-circle-fill"></i>
                   </button>
                 </div>

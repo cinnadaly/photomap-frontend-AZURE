@@ -63,7 +63,13 @@ function Profile() {
         );
 
         if (response.ok) {
-            alert("user updated");
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User Updated!",
+                showConfirmButton: false,
+                timer: 1000
+            });;
 
             const updatedUser = { ...user, ...dataToSend };
             localStorage.setItem("user", JSON.stringify(updatedUser));
