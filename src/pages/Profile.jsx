@@ -1,8 +1,3 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import HomeMap from '../components/HomeMap';
-import { useState, useEffect } from 'react';
-import '../components/HomeMap.css';
-
 function Profile() {
 
     const [user, setUser] = useState(null);
@@ -17,28 +12,40 @@ function Profile() {
     });
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
         fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
             method: "GET",
             credentials: "include"
         })
             .then(res => {
-                console.log("STATUS:", res.status);
-                if (!res.ok) {
-                    throw new Error("Error");
-                }
+                if (!res.ok) throw new Error("Error");
                 return res.json();
             })
-            .then(data => {
-                console.log("User:", data);
-                setUser(data);
+            .then(meData => {
+                return fetch(
+                    `https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/${meData.id}`,
+                    {
+                        method: "GET",
+                        credentials: "include"
+                    }
+                );
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Error /users/id");
+                return res.json();
+            })
+            .then(userRes => {
+                const fullUser = userRes.data;
+
+                setUser(fullUser);
+
                 setFormData({
-                    name: data.name || "",
-                    lastname: data.lastname || "",
-                    email: data.email || "",
-                    username: data.username || "",
+                    name: fullUser.name || "",
+                    lastname: fullUser.lastname || "",
+                    email: fullUser.email || "",
+                    username: fullUser.username || "",
                     password: ""
                 });
+
                 setLoading(false);
             })
             .catch(err => {
@@ -49,7 +56,7 @@ function Profile() {
 
     const handleDeleteAccount = () => {
         console.log("account deleted")
-    }
+    };
 
     const handleChange = (e) => {
         setFormData({
@@ -58,88 +65,94 @@ function Profile() {
         });
     };
 
-    const myAction = async (formData) => {
-        const data = Object.fromEntries(formData);
-        console.log(data)
-        // Server-side logic or client-side logic in a Transition
-        const response = await fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/${user.id}`, {
-            method: 'PUT',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json', // 2. Tell the server to expect JSON
-            },
-            // 3. Stringify the object for the body
-            body: JSON.stringify(data),
+    const myAction = async () => {
+        const dataToSend = { ...formData };
 
-        })
+        if (!dataToSend.password) {
+            delete dataToSend.password;
+        }
+
+        const response = await fetch(
+            `https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/${user.id}`,
+            {
+                method: 'PUT',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dataToSend),
+            }
+        );
 
         if (response.ok) {
             alert("user updated");
         }
     };
 
+    // ✅ TODO ESTO VA DENTRO
     if (loading) {
-        return <p>Loafing...</p>
+        return <p>Loading...</p>;
     }
 
-    //to prevent from not loading user logged data
     if (!user) {
         return <p>Unable to load user</p>;
     }
 
     return (
         <div className='home-component'>
-            <div class="profile-wrapper">
-                <div class="profile-card p-4">
+            <div className="profile-wrapper">
+                <div className="profile-card p-4">
 
-                    <div class="text-center mb-4">
-                        <h4 class="fw-bold">@{user.username}</h4>
+                    <div className="text-center mb-4">
+                        <h4 className="fw-bold">@{user.username}</h4>
                     </div>
 
-                    <div class="mb-4">
-                        <div class="section-title">Edit Profile</div>
+                    <div className="mb-4">
+                        <div className="section-title">Edit Profile</div>
 
                         <form onSubmit={async (e) => {
                             e.preventDefault();
-                            const formData = new FormData(e.target);
-                            await myAction(formData);
+                            await myAction();
                         }}>
 
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <input name='name' type="text" value={formData.name}
+                            <div className="row mb-3">
+                                <div className="col">
+                                    <input name='name' value={formData.name}
                                         onChange={handleChange} className="form-control" />
                                 </div>
-                                <div class="col">
-                                    <input name='lastname' type="text" value={formData.lastname}
+                                <div className="col">
+                                    <input name='lastname' value={formData.lastname}
                                         onChange={handleChange} className="form-control" />
                                 </div>
                             </div>
 
-                            <div class="mb-3">
-                                <input name='email' type="email" value={formData.email}
+                            <div className="mb-3">
+                                <input name='email' value={formData.email}
                                     onChange={handleChange} className="form-control" />
                             </div>
 
-                            <div class="mb-3">
-                                <input name='username' type="text" value={formData.username}
+                            <div className="mb-3">
+                                <input name='username' value={formData.username}
                                     onChange={handleChange} className="form-control" />
                             </div>
 
-                            <div class="mb-3">
-                                <input name='password' type="password" value={formData.password}
+                            <div className="mb-3">
+                                <input name='password' type="password"
+                                    value={formData.password}
                                     onChange={handleChange} className="form-control" />
                             </div>
 
-                            <button type="submit" class="btn btn-dark w-100">
+                            <button type="submit" className="btn btn-dark w-100">
                                 Update Profile
                             </button>
 
                         </form>
                     </div>
 
-                    <div class="text-center">
-                        <button onClick={handleDeleteAccount} type="button" class="btn btn-outline-danger">
+                    <div className="text-center">
+                        <button onClick={handleDeleteAccount}
+                            type="button"
+                            className="btn btn-outline-danger">
                             Deactivate My Account
                         </button>
                     </div>
@@ -149,4 +162,4 @@ function Profile() {
     );
 }
 
-export default Profile
+export default Profile;
