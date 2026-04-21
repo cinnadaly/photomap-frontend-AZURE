@@ -61,19 +61,29 @@ function Dashboard() {
         formData.append("title", title);
         formData.append("description", description);
         try {
-            const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
+            fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
                 method: "POST",
                 credentials: "include",
                 body: formData,
+            }).then((response) => {
+                return response.json()
+            }).then((data) => {
+                console.log(data);
+                Swal.fire({
+                    icon: "success",
+                    title: "Image Uploaded!",
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+            }).then(() => {
+                navigate("/dashboard");
+            }).catch((error) => {
+                console.error("Error:", error);
             });
-
-            const data = await response.json();
-            console.log(data);
-
-        } catch (error) {
+        } catch(error){
             console.error("Error:", error);
         }
-    };
+    }
 
     return (
         <div className='home-component '>
