@@ -2,8 +2,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomeMap from '../components/HomeMap';
 import '../components/HomeMap.css';
 
-function DashboardPhoto({photo, onDelete}){
+function DashboardPhoto({ photo, onDelete }) {
 
+  const currentUser = JSON.parse(localStorage.getItem("user"));
     return (
         <figure className="figure py-2 mx-2 rounded d-flex">
           <div className="figure-img img-fluid rounded" alt="..." 
@@ -19,7 +20,13 @@ function DashboardPhoto({photo, onDelete}){
               <figcaption className="figure-caption">{photo.title}</figcaption>
               <p className="figure-caption">{photo.description}</p>
             </div>
-            <button onClick={() => onDelete(photo.id)} className="btn btn-dark mt-2">Delete</button>
+            {currentUser && photo.userID === currentUser.id && (
+              <button
+                onClick={() => onDelete(photo.id)}
+                className="btn btn-dark mt-2">
+                Delete
+              </button>
+            )}
           </div>
         </figure>
     );
