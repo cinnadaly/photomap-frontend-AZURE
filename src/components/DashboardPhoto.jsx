@@ -8,6 +8,13 @@ function DashboardPhoto({ photo, onDelete }) {
 
   const [selectedPhotoReview, setSelectedPhotoReview] = useState(null);
 
+  const [description, setDescription] = useState(null);
+  const [userID, setUserID] = useState(null);//this will be for logged user
+  const [locationID, setLocationID] = useState(null);//this will be for logged user
+  const [comment, setComment] = useState(null);//this will be for logged user
+
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+
   const handleSubmit = async (e) => {
       e.preventDefault();
       const formData = new FormData();
@@ -15,6 +22,8 @@ function DashboardPhoto({ photo, onDelete }) {
       formData.append("locationID", locationID);
       formData.append("rating", rating);
       formData.append("userID", userID);
+      console.log(formData);
+      /*
       try {
           const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
               method: "POST",
@@ -27,10 +36,9 @@ function DashboardPhoto({ photo, onDelete }) {
 
       } catch (error) {
           console.error("Error:", error);
-      }
+      }*/
   };
 
-  const currentUser = JSON.parse(localStorage.getItem("user"));
     return (
         <figure className="figure py-2 mx-2">
           <div d-flex justify-content-center align-items-center>
@@ -46,7 +54,7 @@ function DashboardPhoto({ photo, onDelete }) {
               {currentUser && photo.userID === currentUser.id && (
                 <div className="position-absolute">
 
-                  <button onClick={() => onEdit(photo.id)} type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button onClick={() => {setLocationID(photo.LocationID), setUserID(currentUser.id)}} type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Add comment
                   </button>
 
@@ -61,11 +69,9 @@ function DashboardPhoto({ photo, onDelete }) {
                         <form onSubmit={handleSubmit}>
                             <div className="row d-flex justify-content-center">
                                 <div className="col-12 col-lg-5 ">
-                                    <div className="upload-form-container d-flex flex-column p-5 ">
-                                        <input className='form-control from-control-lg my-1' type="text" placeholder="Comment" onChange={(e) => setDescription(e.target.value)} />
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save changes</button>
-                                    </div>
+                                    <input className='form-control from-control-lg my-1' type="text" placeholder="Comment" name='comment' onChange={(e)=>setComment(e.target.value)} />
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </form>
