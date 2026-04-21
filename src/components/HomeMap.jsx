@@ -200,14 +200,14 @@ export default function HomeMap(){
                                     <div>
                                         {
                                            (() => {
+                                                const rows = [];
                                                 const stars = parseInt(selectedLocationReview.location.avgRating);
                                                 const emptyStars = 5 - stars;
                                                 for(let i = 0; i < stars; i++){
-                                                    <i class="bi bi-star-fill"></i>
+                                                   rows.push(<i class="bi bi-star-fill"></i>)
                                                 }
-                                                const rows = [];
                                                 for (let i = 0; i < emptyStars; i++) {
-                                                    <i class="bi bi-star"></i>
+                                                   rows.push(<i class="bi bi-star"></i>)
                                                 }
 
                                                 console.log(selectedLocationReview.location.avgRating);
