@@ -5,7 +5,7 @@ import '../components/HomeMap.css';
 function DashboardPhoto({photo, onDelete}){
 
     return (
-        <figure className="figure py-2 mx-2 rounded">
+        <figure className="figure py-2 mx-2 rounded display-flex">
           <div className="figure-img img-fluid rounded" alt="..." 
             style={{
               backgroundImage: `url(${photo.imagePath})`,
@@ -14,9 +14,11 @@ function DashboardPhoto({photo, onDelete}){
               height: "250px",
               width: "100%"
             }}></div>
-          <figcaption className="figure-caption">{photo.title}</figcaption>
-          <p className="figure-caption">{photo.description}</p>
-          <button onClick={() => onDelete(photo.id)} className="btn btn-dark mt-2">Delete</button>
+          <div>
+            <figcaption className="figure-caption">{photo.title}</figcaption>
+            <p className="figure-caption">{photo.description}</p>
+            <button onClick={() => onDelete(photo.id)} className="btn btn-dark mt-2">Delete</button>
+          </div>
         </figure>
     );
   }
