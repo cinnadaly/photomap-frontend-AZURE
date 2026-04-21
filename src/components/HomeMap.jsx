@@ -180,6 +180,12 @@ export default function HomeMap(){
 
                                     <h5>{selectedLocation.name}</h5>
                                     <p>{selectedLocation.address}</p>
+                                    <div>
+                                        <i class="fa-solid fa-star"></i>
+                                        {
+                                            selectedLocation.avgRating
+                                        }
+                                    </div>
                                     <p><strong>Lat:</strong> {selectedLocation.lat}</p>
                                     <p><strong>Lng:</strong> {selectedLocation.lng}</p>
                                 </div>
