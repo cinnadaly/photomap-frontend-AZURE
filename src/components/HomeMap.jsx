@@ -209,8 +209,6 @@ export default function HomeMap(){
                                                 for (let i = 0; i < emptyStars; i++) {
                                                    rows.push(<i class="bi bi-star"></i>)
                                                 }
-
-                                                console.log(selectedLocationReview.location.avgRating);
                                                 return rows;
                                             })()
 
