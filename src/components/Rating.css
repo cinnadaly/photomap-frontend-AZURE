@@ -13,7 +13,6 @@
   --yellow-t: rgba(244, 168, 37, 0);
   --bezier: cubic-bezier(0.42,0,0.58,1);
   --trans-dur: 0.3s;
-  font-size: calc(24px + (30 - 24) * (100vw - 320px) / (1280 - 320));
 }
 
 
