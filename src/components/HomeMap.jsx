@@ -206,6 +206,7 @@ export default function HomeMap(){
                                                 }
                                                 return rows;*/
                                                 selectedLocationReview
+
                                             })()
                                         }
                                     </div>
