@@ -6,15 +6,16 @@ import '../components/HomeMap.css';
 function Profile() {
 
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/me", {
+        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
             method: "GET",
             credentials: "include"
         })
             .then(res => {
+                console.log("STATUS:", res.status);
                 if (!res.ok) {
                     throw new Error("Error");
                 }
