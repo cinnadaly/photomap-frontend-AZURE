@@ -194,6 +194,8 @@ export default function HomeMap(){
                                     <p>{selectedLocation.address}</p>
                                     <div>
                                         {
+                                            console.log(selectedLocationReview.location.avgRating)
+                                            /*
                                            (() => {
                                                 const rows = [];
                                                 for (let i = 0; i < parseInt(selectedLocationReview.location.avgRating) ; i++) {
@@ -207,7 +209,7 @@ export default function HomeMap(){
                                             })()
                                         }
                                         {
-                                            selectedLocationReview.location.avgRating
+                                            selectedLocationReview.location.avgRating*/
                                         }
                                     </div>
                                     <p><strong>Lat:</strong> {selectedLocation.lat}</p>
