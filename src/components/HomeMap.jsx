@@ -194,16 +194,19 @@ export default function HomeMap(){
                                     <p>{selectedLocation.address}</p>
                                     <div>
                                         {
+                                            selectedLocationReview.reviews.map(() => {
+                                                return <i class="bi bi-star-fill"></i>
+                                            })
+                                            /*
                                            (() => {
                                                 const selRev = selectedLocationReview;
                                                 const rows = [];
                                                 for (let i = 0; i < 3; i++) {
-                                                    rows.push(<i class="bi bi-star-fill"></i>);
                                                 }
                                                 console.log(selRev);
 
                                                 return rows;
-                                            })()
+                                            })()*/
                                         }
                                     </div>
                                     <p><strong>Lat:</strong> {selectedLocation.lat}</p>
