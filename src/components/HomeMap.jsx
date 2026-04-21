@@ -129,7 +129,7 @@ export default function HomeMap(){
                                         credentials: "include"
                                     });
                                     const reviewData = await reviewsRes.json();
-                                    setPhotos(reviewData.data);
+                                    setSelectedLocationReview(reviewData.data);
                                     console.log(reviewData, "review data");
 
                                 } catch (error) {
