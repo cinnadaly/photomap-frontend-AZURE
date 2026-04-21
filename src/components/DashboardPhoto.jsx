@@ -11,7 +11,7 @@ function DashboardPhoto({ photo, onDelete }) {
   const [userID, setUserID] = useState(null);//this will be for logged user
   const [locationID, setLocationID] = useState(null);//this will be for logged user
   const [comment, setComment] = useState(null);//this will be for logged user
-  const [rating, setRating] = useState(null);//this will be for logged user
+  const [rating, setRating] = useState(5);//this will be for logged user
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -20,7 +20,7 @@ function DashboardPhoto({ photo, onDelete }) {
       const formData = new FormData();
       formData.append("comment", comment);
       formData.append("locationID", locationID);
-      formData.append("rating", 5);//rating hardcoded
+      formData.append("rating", rating);//rating hardcoded
       formData.append("userID", userID);
       console.log([comment, locationID, 5, userID]);
       /*
@@ -69,7 +69,14 @@ function DashboardPhoto({ photo, onDelete }) {
                         <form onSubmit={handleSubmit}>
                             <div className="row d-flex justify-content-center">
                                 <div className="col-12 col-lg-5 ">
-                                    <input className='form-control from-control-lg my-1' type="text" placeholder="Comment" name='comment' onChange={(e)=>setComment(e.target.value)} />
+                                    <input className='form-control from-control-lg my-1' type="text" placeholder="Comment" name='comment' onChange={(e)=>setComment(e.target.value)} required />
+                                    <div className='starReviewContainer d-flex'>
+                                      <i class="bi bi-star" onClick={() => setRating(1)}></i>
+                                      <i class="bi bi-star" onClick={() => setRating(2)}></i>
+                                      <i class="bi bi-star" onClick={() => setRating(3)}></i>
+                                      <i class="bi bi-star" onClick={() => setRating(4)}></i>
+                                      <i class="bi bi-star" onClick={() => setRating(5)}></i>
+                                    </div>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
