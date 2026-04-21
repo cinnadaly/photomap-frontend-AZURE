@@ -123,6 +123,13 @@ export default function HomeMap(){
                                     setPhotos(data.data);
                                     console.log(data);
 
+
+                                } catch (error) {
+                                    console.error("Error fetching photos or reviews:", error);
+                                    setPhotos([]);
+                                }
+
+                                try{
                                     const reviewsRes = await fetch(
                                     `${BASE_URL}/locations/${location.id}/full`,
                                     {
@@ -131,10 +138,8 @@ export default function HomeMap(){
                                     const reviewData = await reviewsRes.json();
                                     setSelectedLocationReview(reviewData.data);
                                     console.log(reviewData, "review data");
-
-                                } catch (error) {
+                                } catch(error){
                                     console.error("Error fetching photos or reviews:", error);
-                                    setPhotos([]);
                                     setSelectedLocationReview([]);
                                 }
                             }}
