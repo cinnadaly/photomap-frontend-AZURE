@@ -11,6 +11,7 @@ function DashboardPhoto({ photo, onDelete }) {
   const [userID, setUserID] = useState(null);//this will be for logged user
   const [locationID, setLocationID] = useState(null);//this will be for logged user
   const [comment, setComment] = useState(null);//this will be for logged user
+  const [rating, setRating] = useState(null);//this will be for logged user
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -19,7 +20,7 @@ function DashboardPhoto({ photo, onDelete }) {
       const formData = new FormData();
       formData.append("comment", comment);
       formData.append("locationID", locationID);
-      formData.append("rating", rating);
+      formData.append("rating", 5);//rating hardcoded
       formData.append("userID", userID);
       console.log(formData);
       /*
