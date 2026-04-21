@@ -8,7 +8,6 @@ function DashboardPhoto({ photo, onDelete }) {
 
   const [selectedPhotoReview, setSelectedPhotoReview] = useState(null);
 
-  const [description, setDescription] = useState(null);
   const [userID, setUserID] = useState(null);//this will be for logged user
   const [locationID, setLocationID] = useState(null);//this will be for logged user
   const [comment, setComment] = useState(null);//this will be for logged user
