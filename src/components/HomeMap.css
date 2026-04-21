@@ -15,6 +15,12 @@
     width: 100%;
     background-color: rgb(246, 246, 246);
 }
+.figure-img {
+    width: 300px !important;
+}
+.figure-content{
+    width: 100%;
+}
 .info-window{
     width: 350px;
 }
