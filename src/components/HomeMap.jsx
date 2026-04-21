@@ -196,16 +196,18 @@ export default function HomeMap(){
                                         {
                                            (() => {
                                                 const rows = [];
-                                                for (let i = 0; i < selectedLocationReview.avgRating ; i++) {
+                                                for (let i = 0; i < parseInt(selectedLocationReview.location.avgRating) ; i++) {
                                                     rows.push(<i class="bi bi-star-fill"></i>);
                                                 }
-                                                const emptyStars = 5 - selectedLocationReview;
+                                                const emptyStars = 5 - parseInt(selectedLocationReview.location.avgRating);
                                                 for (let i = 0; i <= emptyStars; i++) {
                                                     rows.push(<i class="bi bi-star"></i>);
                                                 }
-
                                                 return rows;
                                             })()
+                                        }
+                                        {
+                                            selectedLocationReview.location.avgRating
                                         }
                                     </div>
                                     <p><strong>Lat:</strong> {selectedLocation.lat}</p>
