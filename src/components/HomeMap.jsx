@@ -130,7 +130,7 @@ export default function HomeMap(){
                                     });
                                     const reviewData = await reviewsRes.json();
                                     setSelectedLocationReview(reviewData.data);
-                                    console.log(reviewData, "review data");
+                                    console.log(selectedLocationReview, "review data");
 
                                 } catch (error) {
                                     console.error("Error fetching photos or reviews:", error);
@@ -195,6 +195,7 @@ export default function HomeMap(){
                                     <div>
                                         {
                                            (async () => {
+                                            /*
                                                 const rows = [];
                                                 for (let i = 0; i < parseInt( selectedLocationReview.location.avgRating) ; i++) {
                                                     rows.push(<i class="bi bi-star-fill"></i>);
@@ -203,7 +204,8 @@ export default function HomeMap(){
                                                 for (let i = 0; i <= emptyStars; i++) {
                                                     rows.push(<i class="bi bi-star"></i>);
                                                 }
-                                                return rows;
+                                                return rows;*/
+                                                selectedLocationReview
                                             })()
                                         }
                                     </div>
