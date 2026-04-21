@@ -8,33 +8,36 @@ function DashboardPhoto({ photo, onDelete }) {
     return (
         <figure className="figure py-2 mx-2">
           <div d-flex justify-content-center align-items-center>
-            <div className="figure-img img-fluid" alt="..." 
+            <div className="figure-img img-fluid position-relative" alt="..." 
               style={{
                 backgroundImage: `url(${photo.imagePath})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: "250px",
                 width: "100%"
-              }}></div>
+              }}>
+
+              {currentUser && photo.userID === currentUser.id && (
+                <div className="position-absolute">
+                  <button
+                    onClick={() => onEdit(photo.id)}
+                    className="btn-edit-custom mt-2 bg-light-subtle">
+                    <i class="bi bi-pen-fill"></i>
+                  </button>
+                  <button
+                    onClick={() => onDelete(photo.id)}
+                    className="btn-absolute-custom mt-2 bg-light-subtle">
+                    <i class="bi bi-x-circle-fill"></i>
+                  </button>
+                </div>
+              )}
+
+              </div>
             <div className="figure-content ">
               <div className="figure-sub-content d-flex flex-column align-items-start">
                 <h3 className="figure-caption">{photo.title}</h3>
                 <h6 className="figure-caption">{photo.description}</h6>
               </div>
-              {currentUser && photo.userID === currentUser.id && (
-                <>
-                  <button
-                    onClick={() => onDelete(photo.id)}
-                    className="btn-absolute-custom mt-2">
-                    <i class="bi bi-x-circle-fill"></i>
-                  </button>
-                  <button
-                    onClick={() => onEdit(photo.id)}
-                    className="btn-absolute-custom mt-2">
-                    <i class="bi bi-pen-fill"></i>
-                  </button>
-                </>
-              )}
             </div>
           </div>
           <div >

@@ -35,13 +35,11 @@ figcaption {
 }
 
 .btn-edit-custom{
-    position:absolute;
     right: 0px;
     top: 100px
 }
 
 .btn-delete-custom{
-    position:absolute;
     right: 0px;
     top: 125px;
 }
