@@ -194,11 +194,13 @@ export default function HomeMap(){
                                     <p>{selectedLocation.address}</p>
                                     <div>
                                         {
-                                           (() => {
+                                           (async () => {
+                                                const selRev = await selectedLocationReview;
                                                 const rows = [];
                                                 for (let i = 0; i < 3; i++) {
-                                                    rows.push(<li key={i}>Item {i}</li>);
+                                                    rows.push(<i class="bi bi-star-fill"></i>);
                                                 }
+
                                                 return rows;
                                             })()
                                         }
