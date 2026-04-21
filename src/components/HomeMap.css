@@ -16,7 +16,7 @@
     background-color: rgb(246, 246, 246);
 }
 .figure-img {
-    width: 300px !important;
+    width: 100%;
 }
 .figure-content{
     width: 100%;
