@@ -62,8 +62,8 @@ function DashboardPhoto({ photo, onDelete }) {
                                 </div>
                                 <div className="col-12 col-lg-5 ">
                                     <div className="upload-form-container d-flex flex-column p-5 ">
-                                        <input className='form-control from-control-lg my-1' type="text" placeholder="Título" value={title} onChange={(e) => setTitle(e.target.value)} />
-                                        <input className='form-control from-control-lg my-1' type="text" placeholder="Descripción" value={description} onChange={(e) => setDescription(e.target.value)} />
+                                        <input className='form-control from-control-lg my-1' type="text" placeholder="Título"  onChange={(e) => setTitle(e.target.value)} />
+                                        <input className='form-control from-control-lg my-1' type="text" placeholder="Descripción" onChange={(e) => setDescription(e.target.value)} />
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Save changes</button>
                                     </div>
