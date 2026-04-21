@@ -4,14 +4,15 @@ import '../components/HomeMap.css';
 
 function DashboardPhoto({ photo, onDelete }) {
 
+  const [selectedPhotoReview, setSelectedPhotoReview] = useState(null);
 
   const handleSubmit = async (e) => {
       e.preventDefault();
       const formData = new FormData();
-      formData.append("photo", file);
+      formData.append("comment", comment);
+      formData.append("locationID", locationID);
+      formData.append("rating", rating);
       formData.append("userID", userID);
-      formData.append("title", title);
-      formData.append("description", description);
       try {
           const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
               method: "POST",
@@ -58,12 +59,8 @@ function DashboardPhoto({ photo, onDelete }) {
                         <form onSubmit={handleSubmit}>
                             <div className="row d-flex justify-content-center">
                                 <div className="col-12 col-lg-5 ">
-                                    <input className='upload-form-container txt-file-input' type="file" onChange={(e) => setFile(e.target.files[0])} required />
-                                </div>
-                                <div className="col-12 col-lg-5 ">
                                     <div className="upload-form-container d-flex flex-column p-5 ">
-                                        <input className='form-control from-control-lg my-1' type="text" placeholder="Título"  onChange={(e) => setTitle(e.target.value)} />
-                                        <input className='form-control from-control-lg my-1' type="text" placeholder="Descripción" onChange={(e) => setDescription(e.target.value)} />
+                                        <input className='form-control from-control-lg my-1' type="text" placeholder="Comment" onChange={(e) => setDescription(e.target.value)} />
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Save changes</button>
                                     </div>
