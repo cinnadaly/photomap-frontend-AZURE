@@ -1,3 +1,8 @@
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import HomeMap from '../components/HomeMap';
+import { useState, useEffect } from 'react';
+import '../components/HomeMap.css';
+
 function Profile() {
 
     const [user, setUser] = useState(null);
@@ -12,40 +17,28 @@ function Profile() {
     });
 
     useEffect(() => {
+        const token = localStorage.getItem("token");
         fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
             method: "GET",
             credentials: "include"
         })
             .then(res => {
-                if (!res.ok) throw new Error("Error");
+                console.log("STATUS:", res.status);
+                if (!res.ok) {
+                    throw new Error("Error");
+                }
                 return res.json();
             })
-            .then(meData => {
-                return fetch(
-                    `https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users/${meData.id}`,
-                    {
-                        method: "GET",
-                        credentials: "include"
-                    }
-                );
-            })
-            .then(res => {
-                if (!res.ok) throw new Error("Error /users/id");
-                return res.json();
-            })
-            .then(userRes => {
-                const fullUser = userRes.data;
-
-                setUser(fullUser);
-
+            .then(data => {
+                console.log("User:", data);
+                setUser(data);
                 setFormData({
-                    name: fullUser.name || "",
-                    lastname: fullUser.lastname || "",
-                    email: fullUser.email || "",
-                    username: fullUser.username || "",
+                    name: data.name || "",
+                    lastname: data.lastname || "",
+                    email: data.email || "",
+                    username: data.username || "",
                     password: ""
                 });
-
                 setLoading(false);
             })
             .catch(err => {
@@ -89,7 +82,6 @@ function Profile() {
         }
     };
 
-    // ✅ TODO ESTO VA DENTRO
     if (loading) {
         return <p>Loading...</p>;
     }
