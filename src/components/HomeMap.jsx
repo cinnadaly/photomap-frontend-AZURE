@@ -130,7 +130,7 @@ export default function HomeMap(){
                                     });
                                     const reviewData = await reviewsRes.json();
                                     setSelectedLocationReview(reviewData.data);
-                                    console.log(selectedLocationReview, "review data");
+                                    console.log(reviewData, "review data");
 
                                 } catch (error) {
                                     console.error("Error fetching photos or reviews:", error);
@@ -194,18 +194,13 @@ export default function HomeMap(){
                                     <p>{selectedLocation.address}</p>
                                     <div>
                                         {
-                                            /*
+                                           (() => {
                                                 const rows = [];
-                                                for (let i = 0; i < parseInt( selectedLocationReview.location.avgRating) ; i++) {
-                                                    rows.push(<i class="bi bi-star-fill"></i>);
+                                                for (let i = 0; i < 3; i++) {
+                                                    rows.push(<li key={i}>Item {i}</li>);
                                                 }
-                                                const emptyStars = 5 - parseInt(selectedLocationReview.location.avgRating);
-                                                for (let i = 0; i <= emptyStars; i++) {
-                                                    rows.push(<i class="bi bi-star"></i>);
-                                                }
-                                                return rows;*/
-                                                selectedLocationReview
-
+                                                return rows;
+                                            })()
                                         }
                                     </div>
                                     <p><strong>Lat:</strong> {selectedLocation.lat}</p>
