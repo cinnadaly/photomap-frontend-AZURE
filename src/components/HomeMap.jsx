@@ -181,9 +181,9 @@ export default function HomeMap(){
                                     <h5>{selectedLocation.name}</h5>
                                     <p>{selectedLocation.address}</p>
                                     <div>
-                                        <i class="fa-solid fa-star"></i>
+                                        <i class="bi bi-star-fill"></i>
                                         {
-                                            selectedLocation.avgRating
+                                            console.log(selectedLocation, "selectedLocation")
                                         }
                                     </div>
                                     <p><strong>Lat:</strong> {selectedLocation.lat}</p>
