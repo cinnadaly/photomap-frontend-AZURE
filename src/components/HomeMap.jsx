@@ -199,19 +199,21 @@ export default function HomeMap(){
                                     <p>{selectedLocation.address}</p>
                                     <div>
                                         {
-                                            selectedLocationReview.reviews.map(() => {
-                                                return <i class="bi bi-star-fill"></i>
-                                            })
-                                            /*
                                            (() => {
-                                                const selRev = selectedLocationReview;
-                                                const rows = [];
-                                                for (let i = 0; i < 3; i++) {
+                                                const stars = parseInt(selectedLocationReview.location.avgRating);
+                                                const emptyStars = 5 - stars;
+                                                for(let i = 0; i < stars; i++){
+                                                    <i class="bi bi-star-fill"></i>
                                                 }
-                                                console.log(selRev);
+                                                const rows = [];
+                                                for (let i = 0; i < emptyStars; i++) {
+                                                    <i class="bi bi-star"></i>
+                                                }
 
+                                                console.log(selectedLocationReview.location.avgRating);
                                                 return rows;
-                                            })()*/
+                                            })()
+
                                         }
                                     </div>
                                     <p><strong>Lat:</strong> {selectedLocation.lat}</p>
