@@ -108,27 +108,27 @@ function Profile() {
                             <div class="row mb-3">
                                 <div class="col">
                                     <input name='name' type="text" value={formData.name}
-                                        onChange={handleChange} className="form-control" placeholder="Name" />
+                                        onChange={handleChange} className="form-control" />
                                 </div>
                                 <div class="col">
                                     <input name='lastname' type="text" value={formData.lastname}
-                                        onChange={handleChange} className="form-control" placeholder="Lastname" />
+                                        onChange={handleChange} className="form-control" />
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <input name='email' type="email" value={formData.email}
-                                    onChange={handleChange} className="form-control" placeholder="Email" />
+                                    onChange={handleChange} className="form-control" />
                             </div>
 
                             <div class="mb-3">
                                 <input name='username' type="text" value={formData.username}
-                                    onChange={handleChange} className="form-control" placeholder="Username" />
+                                    onChange={handleChange} className="form-control" />
                             </div>
 
                             <div class="mb-3">
                                 <input name='password' type="password" value={formData.password}
-                                    onChange={handleChange} className="form-control" placeholder="New Password" />
+                                    onChange={handleChange} className="form-control" />
                             </div>
 
                             <button type="submit" class="btn btn-dark w-100">
