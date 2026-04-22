@@ -50,7 +50,7 @@ function DashboardPhoto({ photo, onDelete }) {
 
     return (
         <figure className="figure py-2 mx-2 col-12 col-lg-5">
-          <div className="d-flex justify-content-center align-items-center">
+          <div >
             <div className="figure-img img-fluid position-relative" alt="..." 
               style={{
                 backgroundImage: `url(${photo.imagePath})`,
@@ -62,10 +62,11 @@ function DashboardPhoto({ photo, onDelete }) {
 
               {currentUser && photo.userID === currentUser.id && (
                 <div className="position-absolute">
-                  <button type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => {
+                  <button type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                  onClick={() => {
                     setLocationID(photo.locationID);
                     setUserID(currentUser.id);
-                  }} >
+                  }}>
                     Add comment
                   </button>
 
@@ -91,7 +92,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                           <input id="rating-3" class="rating__input rating__input-3" type="radio" name="rating" value="3" onClick={() => setRating(3)}/>
                                           <input id="rating-4" class="rating__input rating__input-4" type="radio" name="rating" value="4" onClick={() => setRating(4)}/>
                                           <input id="rating-5" class="rating__input rating__input-5" type="radio" name="rating" value="5" onClick={() => setRating(5)}/>
-                                          <label class="rating__label" htmlFor="rating-1">
+                                          <label class="rating__label" for="rating-1">
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
@@ -112,7 +113,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                             </svg>
                                             <span class="rating__sr">1 star—Terrible</span>
                                           </label>
-                                          <label class="rating__label" htmlFor="rating-2">
+                                          <label class="rating__label" for="rating-2">
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
@@ -133,7 +134,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                             </svg>
                                             <span class="rating__sr">2 stars—Bad</span>
                                           </label>
-                                          <label class="rating__label" htmlFor="rating-3">
+                                          <label class="rating__label" for="rating-3">
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
@@ -154,7 +155,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                             </svg>
                                             <span class="rating__sr">3 stars—OK</span>
                                           </label>
-                                          <label class="rating__label" htmlFor="rating-4">
+                                          <label class="rating__label" for="rating-4">
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
@@ -175,7 +176,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                             </svg>
                                             <span class="rating__sr">4 stars—Good</span>
                                           </label>
-                                          <label class="rating__label" htmlFor="rating-5">
+                                          <label class="rating__label" for="rating-5">
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
