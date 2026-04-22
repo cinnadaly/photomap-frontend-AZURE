@@ -279,9 +279,11 @@ function DashboardPhoto({ photo, onDelete }) {
                                   return rows;
                               })()
                             } {review.Rating}</h6>
-                            <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i></h6>
-                            <input type="button" value="Edit" onClick={handleEditReview}/>
-                            <input type="button" value="Delete" onClick={handleDeleteReview}/>
+                            <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i> 
+                            <div className="d-flex">
+                              <input className='mx-2' type="button" value="Edit"  onClick={handleEditReview}/>
+                              <input type="button" value="Delete" onClick={handleDeleteReview}/>
+                            </div></h6>
                           </li>);
 
                         })
