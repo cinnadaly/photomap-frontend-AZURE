@@ -25,7 +25,6 @@ function DashboardPhoto({ photo, onDelete }) {
       formData.append("rating", rating);//rating hardcoded
       formData.append("userID", userID);
       console.log([comment, locationID, rating, userID]);
-      /*
       try {
           const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
               method: "POST",
@@ -45,11 +44,11 @@ function DashboardPhoto({ photo, onDelete }) {
 
       } catch (error) {
           console.error("Error:", error);
-      }*/
+      }
   };
 
     return (
-        <figure className="figure py-2 mx-2">
+        <figure className="figure py-2 mx-2 col-12 col-lg-5">
           <div d-flex justify-content-center align-items-center>
             <div className="figure-img img-fluid position-relative" alt="..." 
               style={{

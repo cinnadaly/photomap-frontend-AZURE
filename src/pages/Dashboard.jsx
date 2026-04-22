@@ -15,8 +15,15 @@ function Dashboard() {
         await fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/${id}`, {
             method: "DELETE",
             credentials: "include",
+        }).then(() => {
+          setPhotos(prev => prev.filter(photo => photo.id !== id));
+          Swal.fire({
+              icon: "success",
+              title: "Comment added!",
+              showConfirmButton: false,
+              timer: 1000
+          });
         });
-        setPhotos(prev => prev.filter(photo => photo.id !== id));
     };
 
     //use states for file dialog
