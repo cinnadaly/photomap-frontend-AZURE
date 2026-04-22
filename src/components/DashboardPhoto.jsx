@@ -22,25 +22,30 @@ function DashboardPhoto({ photo, onDelete }) {
       console.log([comment, photo.locationID, rating, currentUser.id]);
 
       try {
-          const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
+          fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
               method: "POST",
               credentials: "include",
               headers: {
                 "Content-Type": "application/json"
               },
               body: JSON.stringify(body)
-          });
-
-          const data = await response.json();
-          console.log(data);
-
-          Swal.fire({
-              icon: "success",
-              title: "Comment added!",
-              showConfirmButton: false,
-              timer: 1000
-          });;
-
+          }).then(async() => {
+            const data = await response.json();
+            if(data.status === 0){
+              Swal.fire({
+                  icon: "success",
+                  title: "Comment added!",
+                  showConfirmButton: false,
+                  timer: 1000
+              });
+            }else if(data.status === 1){
+              Swal.fire({
+                  icon: "success",
+                  title: "You already reviewed this image!",
+                  showConfirmButton: false,
+                  timer: 1000
+              });
+            }});
       } catch (error) {
           console.error("Error:", error);
       }
