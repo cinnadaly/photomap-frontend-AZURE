@@ -83,7 +83,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                     <br></br>
 
                                       <div id="form-rating" class="rating">
-                                        <div class="rating__stars">
+                                        <div class="rating__stars d-flex justify-content-center">
                                           <input id="rating-1" class="rating__input rating__input-1" type="radio" name="rating" value="1" onClick={() => setRating(1)}/>
                                           <input id="rating-2" class="rating__input rating__input-2" type="radio" name="rating" value="2" onClick={() => setRating(2)}/>
                                           <input id="rating-3" class="rating__input rating__input-3" type="radio" name="rating" value="3" onClick={() => setRating(3)}/>
