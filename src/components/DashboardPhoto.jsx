@@ -36,6 +36,9 @@ function DashboardPhoto({ photo, onDelete }) {
       }).then((data) => {
         console.log(data);
         if(data.status === 0){
+
+          setReviews(prev => prev.map(r => r.id === reviewID ? { ...r, Comment: comment, Rating: rating } : r));
+
           Swal.fire({
               icon: "success",
               title: "Comment updated!",
@@ -64,6 +67,9 @@ function DashboardPhoto({ photo, onDelete }) {
       }).then((data) => {
         console.log(data);
         if(data.status === 0){
+
+          setReviews(prev => prev.filter(r => r.id !== reviewID));
+
           Swal.fire({
               icon: "success",
               title: "Comment deleted!",
