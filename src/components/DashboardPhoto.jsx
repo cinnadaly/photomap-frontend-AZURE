@@ -96,7 +96,7 @@ function DashboardPhoto({ photo, onDelete }) {
                           <div className="row d-flex justify-content-center">
                             <div className="col-12 col-lg-9 my-2 mb-3">
                               {/*comment input */}
-                              <input className="form-control form-control-lg my-1" type="text" placeholder="be kind:)" name="comment" onChange={(e) => setComment(e.target.value)} required />
+                              <input className="form-control form-control-lg my-1" type="text" placeholder="be kind:)" name="comment" value={comment == null ? "es null xd" : comment} onChange={(e) => setComment(e.target.value)} required />
                               {/*stars input */}
                               <div id={`form-rating-${photo.id}`} className="rating">
                                 <div className="rating__stars d-flex justify-content-center">
