@@ -9,19 +9,23 @@ import {useState, useEffect} from "react";
 
 function DashboardPhoto({ photo, onDelete }) {
   const navigate = useNavigate();
+  //useStates for creating review
   const [selectedPhotoReview, setSelectedPhotoReview] = useState(null);
   const [comment, setComment] = useState(null);//this will be for logged user
   const [rating, setRating] = useState(5);//this will be for logged user
+  const [reviewID, setReviewID] = useState(null);//this will be for logged user
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
 
   const handleEditReview = async (e) => {
       e.preventDefault();
       console.log("edit");
+      console.log([comment, rating, reviewID]);
   }
   const handleDeleteReview = async (e) => {
       e.preventDefault();
       console.log("Delete");
+      console.log([reviewID]);
   }
 
   const handleSubmit = async (e) => {
@@ -281,8 +285,8 @@ function DashboardPhoto({ photo, onDelete }) {
                             } {review.Rating}</h6>
                             <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i> 
                             <div className="d-flex">
-                              <input className='mx-2' type="button" value="Edit"  onClick={handleEditReview}/>
-                              <input type="button" value="Delete" onClick={handleDeleteReview}/>
+                              <input className='mx-2' type="button" value="Edit"  onClick={()=>{setComment(review.Comment); setRating(review.Rating); setReviewID(review.id); handleEditReview}}/>
+                              <input type="button" value="Delete" onClick={()=> {setReviewID(review.id);handleDeleteReview}}/>
                             </div></h6>
                           </li>);
 
