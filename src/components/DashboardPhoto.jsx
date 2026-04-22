@@ -319,8 +319,7 @@ function DashboardPhoto({ photo, onDelete }) {
 
                                     }</h6>
                                     { <h6><> </>{review.Rating}</h6>}
-
-
+                                    <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i></h6>
                                   </li>);
                         })
                       }
