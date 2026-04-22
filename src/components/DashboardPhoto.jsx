@@ -247,8 +247,25 @@ function DashboardPhoto({ photo, onDelete }) {
                         //console.log(photo.reviews)
                         photo.reviews.map((review)=> {
                           return (<li class="list-group-item d-flex flex-column align-items-start">
-                                    <h6>Comment: {review.Comment}</h6>
-                                    <h6>Rating: {review.Rating}</h6>
+                                    <h6><i>"{review.Comment}"</i></h6>
+                                    <h6>{
+                                      (() => {
+                                          const rows = [];
+                                          const stars = review.Rating;
+                                          const emptyStars = 5 - stars;
+                                          for(let i = 0; i < stars; i++){
+                                              rows.push(<i class="bi bi-star-fill"></i>)
+                                          }
+                                          for (let i = 0; i < emptyStars; i++) {
+                                              rows.push(<i class="bi bi-star"></i>)
+                                          }
+                                          return rows;
+                                      })()
+
+                                    }</h6>
+                                    { <h6><> </>{review.Rating}</h6>}
+
+
                                   </li>);
                         })
                       }
