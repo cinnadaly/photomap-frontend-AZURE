@@ -29,7 +29,7 @@ function DashboardPhoto({ photo, onDelete }) {
                 "Content-Type": "application/json"
               },
               body: JSON.stringify(body)
-          }).then(async() => {
+          }).then(async(response) => {
             const data = await response.json();
             if(data.status === 0){
               Swal.fire({
@@ -43,7 +43,7 @@ function DashboardPhoto({ photo, onDelete }) {
                   icon: "success",
                   title: "You already reviewed this image!",
                   showConfirmButton: false,
-                  timer: 1000
+                  timer: 2000
               });
             }});
       } catch (error) {

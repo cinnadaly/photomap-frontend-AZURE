@@ -77,14 +77,21 @@ function Dashboard() {
             }).then((response) => {
                 return response.json()
             }).then((data) => {
-                console.log(data);
-                Swal.fire({
-                    icon: "success",
-                    title: "Image Uploaded!",
-                    showConfirmButton: false,
-                    timer: 1000
-                });
-                navigate("/dashboard");
+                if(data.status === 1){
+                    Swal.fire({
+                        icon: "error",
+                        title: "No GPS data in this image!",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }else{
+                    Swal.fire({
+                        icon: "success",
+                        title: "Image Uploaded!",
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                }
             }).catch((error) => {
                 console.error("Error:", error);
             });
