@@ -55,8 +55,32 @@ function DashboardPhoto({ photo, onDelete }) {
     }
   }
   const handleDeleteReview = async () => {
-    console.log("Delete");
-    console.log([reviewID]);
+    try{
+      fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews/${reviewID}`, {
+        method: "DELETE",
+        credentials: "include",
+      }).then((response) => {
+        return response.json();
+      }).then((data) => {
+        console.log(data);
+        if(data.status === 0){
+          Swal.fire({
+              icon: "success",
+              title: "Comment deleted!",
+              showConfirmButton: false,
+              timer: 1000
+          });
+        }else if(data.status === 1){
+          Swal.fire({
+              icon: "error",
+              title: "delete error!",
+              showConfirmButton: false,
+              timer: 2000
+          });
+        }});
+    }catch(error){
+
+    }
   }
 
   const handleSubmit = async (e) => {
