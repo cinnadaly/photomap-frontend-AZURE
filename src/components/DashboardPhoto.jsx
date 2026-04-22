@@ -21,7 +21,8 @@ function DashboardPhoto({ photo, onDelete }) {
 
   }
 
-  const handleEditReview = async () => {
+  const handleEditReview = async (e) => {
+    e.preventDefault();
     console.log("edit");
     const body = {
         comment: comment,
