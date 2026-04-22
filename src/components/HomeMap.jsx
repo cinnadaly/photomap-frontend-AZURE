@@ -4,7 +4,7 @@ import '../components/HomeMap.css';
 import '../components/Carousel.css';
 
 export default function HomeMap() {
-    const BASE_URL = 'https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net';
+    const BASE_URL = 'https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net';
 
     //for infoWindow selection
     const [selectedLocation, setSelectedLocation] = useState(null);

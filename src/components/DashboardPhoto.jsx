@@ -24,7 +24,7 @@ function DashboardPhoto({ photo, onDelete }) {
       rating: rating
     };
     try {
-      fetch(`https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/reviews/${reviewID}`, {
+      fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews/${reviewID}`, {
         method: "PUT",
         credentials: "include",
         headers: {
@@ -60,7 +60,7 @@ function DashboardPhoto({ photo, onDelete }) {
   }
   const handleDeleteReview = async () => {
     try {
-      fetch(`https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/reviews/${reviewID}`, {
+      fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews/${reviewID}`, {
         method: "DELETE",
         credentials: "include",
       }).then((response) => {
@@ -102,7 +102,7 @@ function DashboardPhoto({ photo, onDelete }) {
     console.log([comment, photo.locationID, rating, currentUser.id]);
 
     try {
-      fetch("https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/reviews", {
+      fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
         method: "POST",
         credentials: "include",
         headers: {
