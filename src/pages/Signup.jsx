@@ -18,12 +18,22 @@ function Signup() {
         });
 
         if (response.ok) {
-            alert("User created successfully");
+            Swal.fire({
+                icon: "success",
+                title: "User created!",
+                showConfirmButton: false,
+                timer: 1000
+            });
             navigate("/login"); //after register go to log in
         } else {
             const errorData = await response.json();
             console.log(errorData);
-            alert("Signup failed");
+            Swal.fire({
+                icon: "error",
+                title: "Error creating user!",
+                showConfirmButton: false,
+                timer: 2000
+            });
         }
     };
 

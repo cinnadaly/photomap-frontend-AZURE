@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, redirect } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import "../components/HomeMap.css";
 
@@ -73,6 +73,8 @@ function Login({ setIsAuthenticated, setUser }) {
                     <input type="password" name="password" id="disabledTextInput" class="form-control" placeholder="password" />
                   </div>
                   <button type="submit" class="btn btn-primary">Login</button>
+                  <button onClick={redirect("/Signup")} class="btn btn-primary">Create new account</button>
+
                 </fieldset>
               </form>
             </div>
