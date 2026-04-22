@@ -516,7 +516,6 @@ function DashboardPhoto({ photo, onDelete }) {
                   }
                 </ul>
               </div>
-
             </div>
           </div>
 
