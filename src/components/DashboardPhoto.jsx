@@ -17,7 +17,8 @@ function DashboardPhoto({ photo, onDelete }) {
   const [reviewID, setReviewID] = useState(null);//this will be for logged user
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
-  const handleEditReview = async () => {
+  const handleEditReview = async (e) => {
+    e.preventDefault();
     console.log("edit");
     const body = {
       comment: comment,
