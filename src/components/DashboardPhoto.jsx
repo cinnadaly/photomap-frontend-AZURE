@@ -17,13 +17,7 @@ function DashboardPhoto({ photo, onDelete }) {
   const [reviewID, setReviewID] = useState(null);//this will be for logged user
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
-
-  const handleUpdateReview = async () => {
-
-  }
-
-  const handleEditReview = async (e) => {
-    e.preventDefault();
+  const handleEditReview = async () => {
     console.log("edit");
     const body = {
         comment: comment,
@@ -472,7 +466,7 @@ function DashboardPhoto({ photo, onDelete }) {
                             {photo.userID === review.user.id && (
                               <div className="d-flex">
                                 <button data-bs-toggle="modal" data-bs-target={"#modal-" + photo.id+"-update"} className='mx-2' onClick={async ()=>{await setComment(review.Comment); await setRating(review.Rating); await setReviewID(review.id); await handleEditReview()}}>Edit</button>
-                                <input type="button" value="Delete" onClick={async ()=> {await setReviewID(review.id); await handleDeleteReview()}}/>
+                                <button onClick={async ()=> {await setReviewID(review.id); await handleDeleteReview()}}>Delete</button>
                               </div>
                             )}
                           </li>);
