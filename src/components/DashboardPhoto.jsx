@@ -284,8 +284,8 @@ function DashboardPhoto({ photo, onDelete }) {
                             <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i></h6>
                             {photo.userID === review.user.id && (
                               <div className="d-flex">
-                                <input className='mx-2' type="button" value="Edit"  onClick={()=>{setComment(review.Comment); setRating(review.Rating); setReviewID(review.id); handleEditReview()}}/>
-                                <input type="button" value="Delete" onClick={()=> {setReviewID(review.id);handleDeleteReview()}}/>
+                                <input className='mx-2' type="button" value="Edit"  onClick={async ()=>{await setComment(review.Comment); await setRating(review.Rating); await setReviewID(review.id); await handleEditReview()}}/>
+                                <input type="button" value="Delete" onClick={async ()=> {await setReviewID(review.id); await handleDeleteReview()}}/>
                               </div>
                             )}
                           </li>);
