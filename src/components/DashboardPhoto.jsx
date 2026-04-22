@@ -1,11 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomeMap from '../components/HomeMap';
+
+import { useNavigate } from "react-router-dom";
 import '../components/HomeMap.css';
 import '../components/Rating.css';
 import '../utils/Rating';
 import {useState, useEffect} from "react";
 
 function DashboardPhoto({ photo, onDelete }) {
+  const navigate = useNavigate();
   const [selectedPhotoReview, setSelectedPhotoReview] = useState(null);
   const [comment, setComment] = useState(null);//this will be for logged user
   const [rating, setRating] = useState(5);//this will be for logged user
@@ -40,7 +43,7 @@ function DashboardPhoto({ photo, onDelete }) {
               });
             }else if(data.status === 1){
               Swal.fire({
-                  icon: "success",
+                  icon: "error",
                   title: "You already reviewed this image!",
                   showConfirmButton: false,
                   timer: 2000
@@ -84,7 +87,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                     <input className='form-control from-control-lg my-1' type="text" placeholder="be kind:)" name='comment' onChange={(e)=>setComment(e.target.value)} required />
                                     <br></br>
 
-                                      <div id="form-rating" class="rating">
+                                      <div id={`form-rating-${photo.id}`} class="rating">
                                         <div class="rating__stars d-flex justify-content-center">
                                           <input id="rating-1" class="rating__input rating__input-1" type="radio" name="rating" value="1" onClick={() => setRating(1)}/>
                                           <input id="rating-2" class="rating__input rating__input-2" type="radio" name="rating" value="2" onClick={() => setRating(2)}/>
@@ -215,12 +218,12 @@ function DashboardPhoto({ photo, onDelete }) {
                     </div>
                   </div>
 
-
                   <button
                     onClick={() => onDelete(photo.id)}
                     className="position-absolute btn btn-dark top-0 m-1">
                     <i class="bi bi-x-lg"></i>
                   </button>
+
                 </div>
               )}
 

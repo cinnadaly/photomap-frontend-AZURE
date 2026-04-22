@@ -1,5 +1,9 @@
-window.addEventListener("DOMContentLoaded",() => {
-	const starRating = new StarRating("#form-rating");
+window.addEventListener("DOMContentLoaded", () => {
+	const forms = document.querySelectorAll('[id^="form-rating-"]');
+
+	forms.forEach(form => {
+		new StarRating(form);
+	});
 });
 
 class StarRating {
@@ -12,7 +16,7 @@ class StarRating {
 			{id: 5, name: "Excellent"}
 		];
 		this.rating = null;
-		this.el = document.querySelector(qs);
+		this.el = qs;
 
 		this.init();
 	}
