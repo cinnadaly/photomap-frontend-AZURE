@@ -69,12 +69,12 @@ function DashboardPhoto({ photo, onDelete }) {
                     Add comment
                   </button>
 
-                  <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h1 className="modal-title fs-5" id="exampleModalLabel">New Comment</h1>
-                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">New Comment</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
                         <form onSubmit={handleSubmit}>
@@ -84,129 +84,129 @@ function DashboardPhoto({ photo, onDelete }) {
                                     <input className='form-control from-control-lg my-1' type="text" placeholder="be kind:)" name='comment' onChange={(e)=>setComment(e.target.value)} required />
                                     <br></br>
 
-                                      <div id="form-rating" className="rating">
-                                        <div className="rating__stars d-flex justify-content-center">
-                                          <input id="rating-1" className="rating__input rating__input-1" type="radio" name="rating" value="1" onClick={() => setRating(1)}/>
-                                          <input id="rating-2" className="rating__input rating__input-2" type="radio" name="rating" value="2" onClick={() => setRating(2)}/>
-                                          <input id="rating-3" className="rating__input rating__input-3" type="radio" name="rating" value="3" onClick={() => setRating(3)}/>
-                                          <input id="rating-4" className="rating__input rating__input-4" type="radio" name="rating" value="4" onClick={() => setRating(4)}/>
-                                          <input id="rating-5" className="rating__input rating__input-5" type="radio" name="rating" value="5" onClick={() => setRating(5)}/>
-                                          <label className="rating__label" htmlFor="rating-1">
-                                            <svg className="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                      <div id="form-rating" class="rating">
+                                        <div class="rating__stars d-flex justify-content-center">
+                                          <input id="rating-1" class="rating__input rating__input-1" type="radio" name="rating" value="1" onClick={() => setRating(1)}/>
+                                          <input id="rating-2" class="rating__input rating__input-2" type="radio" name="rating" value="2" onClick={() => setRating(2)}/>
+                                          <input id="rating-3" class="rating__input rating__input-3" type="radio" name="rating" value="3" onClick={() => setRating(3)}/>
+                                          <input id="rating-4" class="rating__input rating__input-4" type="radio" name="rating" value="4" onClick={() => setRating(4)}/>
+                                          <input id="rating-5" class="rating__input rating__input-5" type="radio" name="rating" value="5" onClick={() => setRating(5)}/>
+                                          <label class="rating__label" htmlFor="rating-1">
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
-                                                <circle className="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
                                               </g>
                                               <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <g transform="translate(16,16) rotate(180)">
-                                                  <polygon className="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
-                                                  <polygon className="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
                                                 </g>
                                                 <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
-                                                  <polyline className="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
                                                 </g>
                                               </g>
                                             </svg>
-                                            <span className="rating__sr">1 star—Terrible</span>
+                                            <span class="rating__sr">1 star—Terrible</span>
                                           </label>
-                                          <label className="rating__label" htmlFor="rating-2">
-                                            <svg className="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                          <label class="rating__label" htmlFor="rating-2">
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
-                                                <circle className="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
                                               </g>
                                               <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <g transform="translate(16,16) rotate(180)">
-                                                  <polygon className="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
-                                                  <polygon className="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
                                                 </g>
                                                 <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
-                                                  <polyline className="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
                                                 </g>
                                               </g>
                                             </svg>
-                                            <span className="rating__sr">2 stars—Bad</span>
+                                            <span class="rating__sr">2 stars—Bad</span>
                                           </label>
-                                          <label className="rating__label" htmlFor="rating-3">
-                                            <svg className="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                          <label class="rating__label" htmlFor="rating-3">
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
-                                                <circle className="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
                                               </g>
                                               <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <g transform="translate(16,16) rotate(180)">
-                                                  <polygon className="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
-                                                  <polygon className="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
                                                 </g>
                                                 <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
-                                                  <polyline className="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
                                                 </g>
                                               </g>
                                             </svg>
-                                            <span className="rating__sr">3 stars—OK</span>
+                                            <span class="rating__sr">3 stars—OK</span>
                                           </label>
-                                          <label className="rating__label" htmlFor="rating-4">
-                                            <svg className="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                          <label class="rating__label" htmlFor="rating-4">
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
-                                                <circle className="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
                                               </g>
                                               <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <g transform="translate(16,16) rotate(180)">
-                                                  <polygon className="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
-                                                  <polygon className="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
                                                 </g>
                                                 <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
-                                                  <polyline className="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
                                                 </g>
                                               </g>
                                             </svg>
-                                            <span className="rating__sr">4 stars—Good</span>
+                                            <span class="rating__sr">4 stars—Good</span>
                                           </label>
-                                          <label className="rating__label" htmlFor="rating-5">
-                                            <svg className="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                          <label class="rating__label" htmlFor="rating-5">
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
-                                                <circle className="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
                                               </g>
                                               <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <g transform="translate(16,16) rotate(180)">
-                                                  <polygon className="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
-                                                  <polygon className="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
                                                 </g>
                                                 <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
-                                                  <polyline className="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
-                                                  <polyline className="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
                                                 </g>
                                               </g>
                                             </svg>
-                                            <span className="rating__sr">5 stars—Excellent</span>
+                                            <span class="rating__sr">5 stars—Excellent</span>
                                           </label>
-                                          <p className="rating__display" data-rating="1" hidden>Terrible</p>
-                                          <p className="rating__display" data-rating="2" hidden>Bad</p>
-                                          <p className="rating__display" data-rating="3" hidden>OK</p>
-                                          <p className="rating__display" data-rating="4" hidden>Good</p>
-                                          <p className="rating__display" data-rating="5" hidden>Excellent</p>
+                                          <p class="rating__display" data-rating="1" hidden>Terrible</p>
+                                          <p class="rating__display" data-rating="2" hidden>Bad</p>
+                                          <p class="rating__display" data-rating="3" hidden>OK</p>
+                                          <p class="rating__display" data-rating="4" hidden>Good</p>
+                                          <p class="rating__display" data-rating="5" hidden>Excellent</p>
                                         </div>
                                       </div>
 
                                     <br></br>
-                                    <button type="button" className="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" className="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </form>
@@ -219,7 +219,7 @@ function DashboardPhoto({ photo, onDelete }) {
                   <button
                     onClick={() => onDelete(photo.id)}
                     className="position-absolute btn btn-dark top-0 m-1">
-                    <i className="bi bi-x-lg"></i>
+                    <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               )}
@@ -233,22 +233,22 @@ function DashboardPhoto({ photo, onDelete }) {
             </div>
           </div>
           <div >
-            <div className="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
 
-              <div className="accordion-item">
-                <h2 className="accordion-header">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#"+photo.id + "collapse"} aria-expanded="false" aria-controls="flush-collapseOne">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#"+photo.id + "collapse"} aria-expanded="false" aria-controls="flush-collapseOne">
                     <h6>Reviews</h6>
                   </button>
                 </h2>
-                <div id={photo.id + "collapse"} className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div id={photo.id + "collapse"} class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
 
-                  <div className="accordion-body">
-                    <ul className="list-group list-group-flush">
+                  <div class="accordion-body">
+                    <ul class="list-group list-group-flush">
                       {
                         //console.log(photo.reviews)
                         photo.reviews.map((review)=> {
-                          return (<li className="list-group-item d-flex flex-column align-items-start">
+                          return (<li class="list-group-item d-flex flex-column align-items-start">
                                     <h6><i>"{review.Comment}"</i></h6>
                                     <h6>{
                                       (() => {
@@ -256,10 +256,10 @@ function DashboardPhoto({ photo, onDelete }) {
                                           const stars = review.Rating;
                                           const emptyStars = 5 - stars;
                                           for(let i = 0; i < stars; i++){
-                                              rows.push(<i className="bi bi-star-fill"></i>)
+                                              rows.push(<i class="bi bi-star-fill"></i>)
                                           }
                                           for (let i = 0; i < emptyStars; i++) {
-                                              rows.push(<i className="bi bi-star"></i>)
+                                              rows.push(<i class="bi bi-star"></i>)
                                           }
                                           return rows;
                                       })()
