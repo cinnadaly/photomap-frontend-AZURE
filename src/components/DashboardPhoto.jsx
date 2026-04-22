@@ -14,6 +14,16 @@ function DashboardPhoto({ photo, onDelete }) {
   const [rating, setRating] = useState(5);//this will be for logged user
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
+
+  const handleEditReview = async (e) => {
+      e.preventDefault();
+      console.log("edit");
+  }
+  const handleDeleteReview = async (e) => {
+      e.preventDefault();
+      console.log("Delete");
+  }
+
   const handleSubmit = async (e) => {
       e.preventDefault();
       const body = {
@@ -234,6 +244,8 @@ function DashboardPhoto({ photo, onDelete }) {
               </div>
             </div>
           </div>
+
+          {/*review accordion component */}
           <div >
             <div class="accordion accordion-flush" id="accordionFlushExample">
 
@@ -250,25 +262,28 @@ function DashboardPhoto({ photo, onDelete }) {
                       {
                         //console.log(photo.reviews)
                         photo.reviews.map((review)=> {
-                          return (<li class="list-group-item d-flex flex-column align-items-start">
-                                    <h6><i>"{review.Comment}"</i></h6>
-                                    <h6>{
-                                      (() => {
-                                          const rows = [];
-                                          const stars = review.Rating;
-                                          const emptyStars = 5 - stars;
-                                          for(let i = 0; i < stars; i++){
-                                              rows.push(<i class="bi bi-star-fill"></i>)
-                                          }
-                                          for (let i = 0; i < emptyStars; i++) {
-                                              rows.push(<i class="bi bi-star"></i>)
-                                          }
-                                          return rows;
-                                      })()
 
-                                    } {review.Rating}</h6>
-                                    <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i></h6>
-                                  </li>);
+                          return (<li class="list-group-item d-flex flex-column align-items-start">
+                            <h6><i>"{review.Comment}"</i></h6>
+                            <h6>{
+                              (() => {
+                                  const rows = [];
+                                  const stars = review.Rating;
+                                  const emptyStars = 5 - stars;
+                                  for(let i = 0; i < stars; i++){
+                                      rows.push(<i class="bi bi-star-fill"></i>)
+                                  }
+                                  for (let i = 0; i < emptyStars; i++) {
+                                      rows.push(<i class="bi bi-star"></i>)
+                                  }
+                                  return rows;
+                              })()
+                            } {review.Rating}</h6>
+                            <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i></h6>
+                            <button onClick={handleEditReview}><h6>Edit</h6></button>
+                            <button onClick={handleDeleteReview}><h6>Delete</h6></button>
+                          </li>);
+
                         })
                       }
                     </ul>
