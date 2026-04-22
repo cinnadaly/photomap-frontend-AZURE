@@ -9,6 +9,7 @@ function Dashboard() {
 
     const navigate = useNavigate();
     const [photos, setPhotos] = useState([]);
+    const currentUser = JSON.parse(localStorage.getItem("user"));
 
     //delete image
     const handleRemovePhoto = async (id) => {
@@ -66,7 +67,7 @@ function Dashboard() {
         e.preventDefault();
         const formData = new FormData();
         formData.append("photo", file);
-        formData.append("userID", userID);
+        formData.append("userID", currentUser.id);
         formData.append("title", title);
         formData.append("description", description);
         try {
