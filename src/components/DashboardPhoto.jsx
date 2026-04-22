@@ -108,12 +108,7 @@ function DashboardPhoto({ photo, onDelete }) {
             value="1"
             onClick={() => setRating(1)}
           />
-          <label className="rating__label" htmlFor={`rating-1-${photo.id}`}>
-            ★
-          </label>
-
-          {/* ⭐ 2 */}
-          <input
+                                          <input
             id={`rating-2-${photo.id}`}
             className="rating__input rating__input-2"
             type="radio"
@@ -121,12 +116,7 @@ function DashboardPhoto({ photo, onDelete }) {
             value="2"
             onClick={() => setRating(2)}
           />
-          <label className="rating__label" htmlFor={`rating-2-${photo.id}`}>
-            ★
-          </label>
-
-          {/* ⭐ 3 */}
-          <input
+                                          <input
             id={`rating-3-${photo.id}`}
             className="rating__input rating__input-3"
             type="radio"
@@ -134,12 +124,7 @@ function DashboardPhoto({ photo, onDelete }) {
             value="3"
             onClick={() => setRating(3)}
           />
-          <label className="rating__label" htmlFor={`rating-3-${photo.id}`}>
-            ★
-          </label>
-
-          {/* ⭐ 4 */}
-          <input
+                                          <input
             id={`rating-4-${photo.id}`}
             className="rating__input rating__input-4"
             type="radio"
@@ -147,12 +132,7 @@ function DashboardPhoto({ photo, onDelete }) {
             value="4"
             onClick={() => setRating(4)}
           />
-          <label className="rating__label" htmlFor={`rating-4-${photo.id}`}>
-            ★
-          </label>
-
-          {/* ⭐ 5 */}
-          <input
+                                          <input
             id={`rating-5-${photo.id}`}
             className="rating__input rating__input-5"
             type="radio"
@@ -160,36 +140,129 @@ function DashboardPhoto({ photo, onDelete }) {
             value="5"
             onClick={() => setRating(5)}
           />
-          <label className="rating__label" htmlFor={`rating-5-${photo.id}`}>
-            ★
-          </label>
-
-          {/* TEXTOS */}
-          <p className="rating__display" data-rating="1" hidden>Terrible</p>
+                                          <label className="rating__label" htmlFor={`rating-1-${photo.id}`}>
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                              <g transform="translate(16,16)">
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                              </g>
+                                              <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <g transform="translate(16,16) rotate(180)">
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                </g>
+                                                <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                </g>
+                                              </g>
+                                            </svg>
+                                            <span class="rating__sr">1 star—Terrible</span>
+                                          </label>
+                                          <label className="rating__label" htmlFor={`rating-2-${photo.id}`}>
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                              <g transform="translate(16,16)">
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                              </g>
+                                              <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <g transform="translate(16,16) rotate(180)">
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                </g>
+                                                <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                </g>
+                                              </g>
+                                            </svg>
+                                            <span class="rating__sr">2 stars—Bad</span>
+                                          </label>
+                                          <label className="rating__label" htmlFor={`rating-3-${photo.id}`}>
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                              <g transform="translate(16,16)">
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                              </g>
+                                              <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <g transform="translate(16,16) rotate(180)">
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                </g>
+                                                <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                </g>
+                                              </g>
+                                            </svg>
+                                            <span class="rating__sr">3 stars—OK</span>
+                                          </label>
+                                          <label className="rating__label" htmlFor={`rating-4-${photo.id}`}>
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                              <g transform="translate(16,16)">
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                              </g>
+                                              <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <g transform="translate(16,16) rotate(180)">
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                </g>
+                                                <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                </g>
+                                              </g>
+                                            </svg>
+                                            <span class="rating__sr">4 stars—Good</span>
+                                          </label>
+                                          <label className="rating__label" htmlFor={`rating-5-${photo.id}`}>
+                                            <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                                              <g transform="translate(16,16)">
+                                                <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
+                                              </g>
+                                              <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <g transform="translate(16,16) rotate(180)">
+                                                  <polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" />
+                                                  <polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" />
+                                                </g>
+                                                <g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12">
+                                                  <polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" />
+                                                  <polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" />
+                                                </g>
+                                              </g>
+                                            </svg>
+                                            <span class="rating__sr">5 stars—Excellent</span>
+                                          </label>
+                                          <p className="rating__display" data-rating="1" hidden>Terrible</p>
           <p className="rating__display" data-rating="2" hidden>Bad</p>
           <p className="rating__display" data-rating="3" hidden>OK</p>
           <p className="rating__display" data-rating="4" hidden>Good</p>
           <p className="rating__display" data-rating="5" hidden>Excellent</p>
+                                        </div>
+                                      </div>
 
-        </div>
-      </div>
-
-      <br />
-
-      <button
+                                    <br></br>
+                                    <button
         type="button"
         className="btn btn-secondary me-2"
         data-bs-dismiss="modal"
-      >
-        Close
-      </button>
-
-      <button type="submit" className="btn btn-primary">
-        Save changes
-      </button>
-    </div>
-  </div>
-</form>
+      >Close</button>
+                                    <button type="submit" className="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </form>
 
                       </div>
                     </div>
