@@ -10,8 +10,6 @@ function DashboardPhoto({ photo, onDelete }) {
 
   const [selectedPhotoReview, setSelectedPhotoReview] = useState(null);
 
-  const [userID, setUserID] = useState(null);//this will be for logged user
-  const [locationID, setLocationID] = useState(null);//this will be for logged user
   const [comment, setComment] = useState(null);//this will be for logged user
   const [rating, setRating] = useState(5);//this will be for logged user
 
@@ -21,9 +19,9 @@ function DashboardPhoto({ photo, onDelete }) {
       e.preventDefault();
       const formData = new FormData();
       formData.append("comment", comment);
-      formData.append("locationID", locationID);
+      formData.append("locationID", photo.locationID);
       formData.append("rating", rating);//rating hardcoded
-      formData.append("userID", userID);
+      formData.append("userID", currentUser.id);
       console.log([comment, locationID, rating, userID]);
 
       try {
@@ -62,7 +60,7 @@ function DashboardPhoto({ photo, onDelete }) {
 
               {currentUser && photo.userID === currentUser.id && (
                 <div className="position-absolute">
-                  <button type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                  <button type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target={"#modal-" + photo.id}
                   onClick={() => {
                     setLocationID(photo.locationID);
                     setUserID(currentUser.id);
@@ -70,7 +68,7 @@ function DashboardPhoto({ photo, onDelete }) {
                     Add comment
                   </button>
 
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id={"modal-" + photo.id} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
