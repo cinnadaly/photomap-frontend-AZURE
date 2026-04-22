@@ -280,8 +280,8 @@ function DashboardPhoto({ photo, onDelete }) {
                               })()
                             } {review.Rating}</h6>
                             <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i></h6>
-                            <button onClick={handleEditReview}><h6>Edit</h6></button>
-                            <button onClick={handleDeleteReview}><h6>Delete</h6></button>
+                            <input type="button" value="Edit" onClick={handleEditReview}/>
+                            <input type="button" value="Delete" onClick={handleDeleteReview}/>
                           </li>);
 
                         })
