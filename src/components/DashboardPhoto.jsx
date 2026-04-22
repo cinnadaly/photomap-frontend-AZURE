@@ -17,13 +17,11 @@ function DashboardPhoto({ photo, onDelete }) {
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
 
-  const handleEditReview = async (e) => {
-      e.preventDefault();
+  const handleEditReview = async () => {
       console.log("edit");
       console.log([comment, rating, reviewID]);
   }
-  const handleDeleteReview = async (e) => {
-      e.preventDefault();
+  const handleDeleteReview = async () => {
       console.log("Delete");
       console.log([reviewID]);
   }
