@@ -84,7 +84,6 @@ function Dashboard() {
                     showConfirmButton: false,
                     timer: 1000
                 });
-            }).then(() => {
                 navigate("/dashboard");
             }).catch((error) => {
                 console.error("Error:", error);

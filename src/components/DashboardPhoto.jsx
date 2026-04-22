@@ -19,17 +19,21 @@ function DashboardPhoto({ photo, onDelete }) {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
-      const formData = new FormData();
-      formData.append("comment", comment);
-      formData.append("locationID", locationID);
-      formData.append("rating", rating);//rating hardcoded
-      formData.append("userID", userID);
+      const body = {
+        comment: comment,
+        locationID: locationID,
+        rating: rating,
+        userID: userID
+      };
       console.log([comment, locationID, rating, userID]);
       try {
           const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
               method: "POST",
               credentials: "include",
-              body: formData,
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(body)
           });
 
           const data = await response.json();
