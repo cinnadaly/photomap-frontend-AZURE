@@ -18,24 +18,18 @@ function DashboardPhoto({ photo, onDelete }) {
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   const handleSubmit = async (e) => {
-    console.log(locationID);
-    console.log(userID);
       e.preventDefault();
-      const body = {
-        comment: comment,
-        locationID: locationID,
-        rating: rating,
-        userID: userID
-      };
-      //console.log([comment, locationID, rating, userID]);
+      const formData = new FormData();
+      formData.append("comment", comment);
+      formData.append("locationID", locationID);
+      formData.append("rating", rating);//rating hardcoded
+      formData.append("userID", userID);
+      console.log([comment, locationID, rating, userID]);
       try {
           const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
               method: "POST",
               credentials: "include",
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify(body)
+              body: formData,
           });
 
           const data = await response.json();
@@ -68,7 +62,7 @@ function DashboardPhoto({ photo, onDelete }) {
               {currentUser && photo.userID === currentUser.id && (
                 <div className="position-absolute">
 
-                  <button onClick={() => {console.log(locationID);setLocationID(photo.locationID);console.log(currentUser); setUserID(currentUser.id)}} type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button onClick={() => {setLocationID(photo.locationID), setUserID(currentUser.id)}} type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Add comment
                   </button>
 
