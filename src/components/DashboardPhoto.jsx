@@ -5,14 +5,10 @@ import '../components/Rating.css';
 import '../utils/Rating';
 import {useState, useEffect} from "react";
 
-
 function DashboardPhoto({ photo, onDelete }) {
-
   const [selectedPhotoReview, setSelectedPhotoReview] = useState(null);
-
   const [comment, setComment] = useState(null);//this will be for logged user
   const [rating, setRating] = useState(5);//this will be for logged user
-
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   const handleSubmit = async (e) => {
@@ -60,11 +56,7 @@ function DashboardPhoto({ photo, onDelete }) {
 
               {currentUser && photo.userID === currentUser.id && (
                 <div className="position-absolute">
-                  <button type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target={"#modal-" + photo.id}
-                  onClick={() => {
-                    setLocationID(photo.locationID);
-                    setUserID(currentUser.id);
-                  }}>
+                  <button type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target={"#modal-" + photo.id}>
                     Add comment
                   </button>
 
