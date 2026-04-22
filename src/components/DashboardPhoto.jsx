@@ -62,8 +62,7 @@ function DashboardPhoto({ photo, onDelete }) {
 
               {currentUser && photo.userID === currentUser.id && (
                 <div className="position-absolute">
-
-                  <button type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={async () => setLocationID(photo.locationID),setUserID(currentUser.id)} >
+                  <button type="button" className="btn btn-dark m-1" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setLocationID(photo.locationID),setUserID(currentUser.id)} >
                     Add comment
                   </button>
 
