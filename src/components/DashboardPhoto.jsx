@@ -18,7 +18,11 @@ function DashboardPhoto({ photo, onDelete }) {
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   //useStates for updating reviews in feed
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState(photo.reviews || []);
+
+  useEffect(() => {
+    setReviews(photo.reviews || []);
+  }, [photo]);
 
   const handleEditReview = async (e) => {
     e.preventDefault();
@@ -290,7 +294,7 @@ function DashboardPhoto({ photo, onDelete }) {
 
                           <br></br>
                           <button type="button" className="btn btn-secondary me-2" data-bs-dismiss="modal" >Close</button>
-                          <button type="submit" className="btn btn-primary">Save changes</button>
+                          <button  type="submit" className="btn btn-primary">Save changes</button>
                         </div>
                       </div>
                     </form>
@@ -481,7 +485,7 @@ function DashboardPhoto({ photo, onDelete }) {
                 <ul class="list-group list-group-flush">
                   {
                     //console.log(photo.reviews)
-                    photo.reviews.map((review) => {
+                    reviews?.map((review) => {
 
                       return (<li class="list-group-item d-flex flex-column align-items-start">
                         <h6><i>"{review.Comment}"</i></h6>
@@ -502,7 +506,7 @@ function DashboardPhoto({ photo, onDelete }) {
                         <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i></h6>
                         {photo.userID === review.user.id && (
                           <div className="d-flex">
-                            <button data-bs-toggle="modal" data-bs-target={"#modal-" + photo.id + "-update"} className='mx-2' onClick={async () => { await setComment(review.Comment); await setRating(review.Rating); await setReviewID(review.id); await handleEditReview() }}>Edit</button>
+                            <button data-bs-toggle="modal" data-bs-target={"#modal-" + photo.id + "-update"} className='mx-2' onClick={async () => { setComment(review.Comment); setRating(review.Rating); setReviewID(review.id);}}>Edit</button>
                             <button onClick={async () => { await setReviewID(review.id); await handleDeleteReview() }}>Delete</button>
                           </div>
                         )}
