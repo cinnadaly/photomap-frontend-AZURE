@@ -81,65 +81,18 @@ function DashboardPhoto({ photo, onDelete }) {
                         </div>
 
                         <form onSubmit={handleSubmit}>
-  <div className="row d-flex justify-content-center">
-    <div className="col-12 col-lg-9 my-2">
-      <br />
-
-      <input
-        className="form-control form-control-lg my-1"
-        type="text"
-        placeholder="be kind:)"
-        name="comment"
-        onChange={(e) => setComment(e.target.value)}
-        required
-      />
-
-      <br />
-
-      <div id={`form-rating-${photo.id}`} className="rating">
-        <div className="rating__stars d-flex justify-content-center">
-
-          {/* ⭐ 1 */}
-          <input
-            id={`rating-1-${photo.id}`}
-            className="rating__input rating__input-1"
-            type="radio"
-            name={`rating-${photo.id}`}
-            value="1"
-            onClick={() => setRating(1)}
-          />
-                                          <input
-            id={`rating-2-${photo.id}`}
-            className="rating__input rating__input-2"
-            type="radio"
-            name={`rating-${photo.id}`}
-            value="2"
-            onClick={() => setRating(2)}
-          />
-                                          <input
-            id={`rating-3-${photo.id}`}
-            className="rating__input rating__input-3"
-            type="radio"
-            name={`rating-${photo.id}`}
-            value="3"
-            onClick={() => setRating(3)}
-          />
-                                          <input
-            id={`rating-4-${photo.id}`}
-            className="rating__input rating__input-4"
-            type="radio"
-            name={`rating-${photo.id}`}
-            value="4"
-            onClick={() => setRating(4)}
-          />
-                                          <input
-            id={`rating-5-${photo.id}`}
-            className="rating__input rating__input-5"
-            type="radio"
-            name={`rating-${photo.id}`}
-            value="5"
-            onClick={() => setRating(5)}
-          />
+                          <div className="row d-flex justify-content-center">
+                            <div className="col-12 col-lg-9 my-2 mb-3">
+                              {/*comment input */}
+                              <input className="form-control form-control-lg my-1" type="text" placeholder="be kind:)" name="comment" onChange={(e) => setComment(e.target.value)} required />
+                              {/*stars input */}
+                              <div id={`form-rating-${photo.id}`} className="rating">
+                                <div className="rating__stars d-flex justify-content-center">
+                                  <input id={`rating-1-${photo.id}`} className="rating__input rating__input-1" type="radio" name={`rating-${photo.id}`} value="1" onClick={() => setRating(1)} />
+                                  <input id={`rating-2-${photo.id}`} className="rating__input rating__input-2" type="radio" name={`rating-${photo.id}`} value="2" onClick={() => setRating(2)} />
+                                  <input id={`rating-3-${photo.id}`} className="rating__input rating__input-3" type="radio" name={`rating-${photo.id}`} value="3" onClick={() => setRating(3)} />
+                                  <input id={`rating-4-${photo.id}`} className="rating__input rating__input-4" type="radio" name={`rating-${photo.id}`} value="4" onClick={() => setRating(4)} />
+                                  <input id={`rating-5-${photo.id}`} className="rating__input rating__input-5" type="radio" name={`rating-${photo.id}`} value="5" onClick={() => setRating(5)} />
                                           <label className="rating__label" htmlFor={`rating-1-${photo.id}`}>
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
@@ -246,19 +199,15 @@ function DashboardPhoto({ photo, onDelete }) {
                                             <span class="rating__sr">5 stars—Excellent</span>
                                           </label>
                                           <p className="rating__display" data-rating="1" hidden>Terrible</p>
-          <p className="rating__display" data-rating="2" hidden>Bad</p>
-          <p className="rating__display" data-rating="3" hidden>OK</p>
-          <p className="rating__display" data-rating="4" hidden>Good</p>
-          <p className="rating__display" data-rating="5" hidden>Excellent</p>
+                                            <p className="rating__display" data-rating="2" hidden>Bad</p>
+                                            <p className="rating__display" data-rating="3" hidden>OK</p>
+                                            <p className="rating__display" data-rating="4" hidden>Good</p>
+                                            <p className="rating__display" data-rating="5" hidden>Excellent</p>
                                         </div>
                                       </div>
 
                                     <br></br>
-                                    <button
-        type="button"
-        className="btn btn-secondary me-2"
-        data-bs-dismiss="modal"
-      >Close</button>
+                                    <button type="button" className="btn btn-secondary me-2" data-bs-dismiss="modal" >Close</button>
                                     <button type="submit" className="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
@@ -317,8 +266,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                           return rows;
                                       })()
 
-                                    }</h6>
-                                    { <h6><> </>{review.Rating}</h6>}
+                                    } {review.Rating}</h6>
                                     <h6><i>by {review.user.Username} at {new Date(review.CreatedAt).toLocaleString()}</i></h6>
                                   </li>);
                         })
