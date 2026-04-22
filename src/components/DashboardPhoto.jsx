@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import '../components/HomeMap.css';
 import '../components/Rating.css';
 import '../utils/Rating';
+import '../utils/Rating-update';
 import {useState, useEffect} from "react";
 
 function DashboardPhoto({ photo, onDelete }) {
@@ -283,14 +284,14 @@ function DashboardPhoto({ photo, onDelete }) {
                               {/*comment input */}
                               <input className="form-control form-control-lg my-1" type="text" placeholder="be kind:)" name="comment" value={comment == null ? "es null xd" : comment} onChange={(e) => setComment(e.target.value)} required />
                               {/*stars input */}
-                              <div id={`form-rating-${photo.id}`} className="rating">
+                              <div id={`form-rating-${photo.id}-update`} className="rating">
                                 <div className="rating__stars d-flex justify-content-center">
-                                  <input id={`rating-1-${photo.id}`} className="rating__input rating__input-1" type="radio" name={`rating-${photo.id}`} value="1" onClick={() => setRating(1)} />
-                                  <input id={`rating-2-${photo.id}`} className="rating__input rating__input-2" type="radio" name={`rating-${photo.id}`} value="2" onClick={() => setRating(2)} />
-                                  <input id={`rating-3-${photo.id}`} className="rating__input rating__input-3" type="radio" name={`rating-${photo.id}`} value="3" onClick={() => setRating(3)} />
-                                  <input id={`rating-4-${photo.id}`} className="rating__input rating__input-4" type="radio" name={`rating-${photo.id}`} value="4" onClick={() => setRating(4)} />
-                                  <input id={`rating-5-${photo.id}`} className="rating__input rating__input-5" type="radio" name={`rating-${photo.id}`} value="5" onClick={() => setRating(5)} />
-                                          <label className="rating__label" htmlFor={`rating-1-${photo.id}`}>
+                                  <input id={`rating-1-${photo.id}-update`} className="rating__input rating__input-1" type="radio" name={`rating-${photo.id}-update`} value="1" onClick={() => setRating(1)} />
+                                  <input id={`rating-2-${photo.id}-update`} className="rating__input rating__input-2" type="radio" name={`rating-${photo.id}-update`} value="2" onClick={() => setRating(2)} />
+                                  <input id={`rating-3-${photo.id}-update`} className="rating__input rating__input-3" type="radio" name={`rating-${photo.id}-update`} value="3" onClick={() => setRating(3)} />
+                                  <input id={`rating-4-${photo.id}-update`} className="rating__input rating__input-4" type="radio" name={`rating-${photo.id}-update`} value="4" onClick={() => setRating(4)} />
+                                  <input id={`rating-5-${photo.id}-update`} className="rating__input rating__input-5" type="radio" name={`rating-${photo.id}-update`} value="5" onClick={() => setRating(5)} />
+                                          <label className="rating__label" htmlFor={`rating-1-${photo.id}-update`}>
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
@@ -311,7 +312,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                             </svg>
                                             <span class="rating__sr">1 star—Terrible</span>
                                           </label>
-                                          <label className="rating__label" htmlFor={`rating-2-${photo.id}`}>
+                                          <label className="rating__label" htmlFor={`rating-2-${photo.id}-update`}>
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
@@ -332,7 +333,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                             </svg>
                                             <span class="rating__sr">2 stars—Bad</span>
                                           </label>
-                                          <label className="rating__label" htmlFor={`rating-3-${photo.id}`}>
+                                          <label className="rating__label" htmlFor={`rating-3-${photo.id}-update`}>
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
@@ -353,7 +354,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                             </svg>
                                             <span class="rating__sr">3 stars—OK</span>
                                           </label>
-                                          <label className="rating__label" htmlFor={`rating-4-${photo.id}`}>
+                                          <label className="rating__label" htmlFor={`rating-4-${photo.id}-update`}>
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
@@ -374,7 +375,7 @@ function DashboardPhoto({ photo, onDelete }) {
                                             </svg>
                                             <span class="rating__sr">4 stars—Good</span>
                                           </label>
-                                          <label className="rating__label" htmlFor={`rating-5-${photo.id}`}>
+                                          <label className="rating__label" htmlFor={`rating-5-${photo.id}-update`}>
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
                                                 <circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" />
