@@ -32,7 +32,7 @@ function App() {
       .catch(() => setIsAuthenticated(false));
   }, []);*/
   useEffect(() => {
-    fetch("https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/me", {
+    fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/me", {
       credentials: "include"
     })
       .then(res => {
@@ -54,7 +54,7 @@ function App() {
   //logout attempt
   const handleLogout = async () => {
     try {
-      const response = await fetch('https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/logout', {
+      const response = await fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/logout', {
         method: 'POST',
         credentials: 'include',
       });
@@ -73,7 +73,7 @@ function App() {
 
   /* COMMENTED FOR TESTING
   const handleLogout = async () => {
-    fetch('https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/logout', {
+    fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/logout', {
       method: 'POST',
       credentials: 'include',
     })

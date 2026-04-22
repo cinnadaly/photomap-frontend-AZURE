@@ -13,7 +13,7 @@ function Dashboard() {
 
     //delete image
     const handleRemovePhoto = async (id) => {
-        await fetch(`https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/photos/${id}`, {
+        await fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/${id}`, {
             method: "DELETE",
             credentials: "include",
         }).then(() => {
@@ -35,7 +35,7 @@ function Dashboard() {
     const [reviewData, setReviewData] = useState(null);
 
     useEffect(() => {
-        fetch("https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/photos/reviews", {
+        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/reviews", {
             credentials: "include",
         })
             .then((response) => {
@@ -49,7 +49,7 @@ function Dashboard() {
     }, [])
     /*
         useEffect(() => {
-            fetch("https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/locations", {
+            fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/locations", {
                 credentials: "include",
             })
                 .then((response) => {
@@ -71,7 +71,7 @@ function Dashboard() {
         formData.append("title", title);
         formData.append("description", description);
         try {
-            fetch("https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/photos", {
+            fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
                 method: "POST",
                 credentials: "include",
                 body: formData,
