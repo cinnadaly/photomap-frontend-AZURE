@@ -77,18 +77,18 @@ function DashboardPhoto({ photo, onDelete }) {
 
                         <form onSubmit={handleSubmit}>
                             <div className="row d-flex justify-content-center">
-                                <div className="col-12 col-lg-9 ">
+                                <div className="col-12 col-lg-9 my-2">
                                     <br></br>
                                     <input className='form-control from-control-lg my-1' type="text" placeholder="be kind:)" name='comment' onChange={(e)=>setComment(e.target.value)} required />
                                     <br></br>
 
-                                      <form id="form-rating" class="rating">
+                                      <div id="form-rating" class="rating">
                                         <div class="rating__stars">
-                                          <input id="rating-1" class="rating__input rating__input-1" type="radio" name="rating" value="1"/>
-                                          <input id="rating-2" class="rating__input rating__input-2" type="radio" name="rating" value="2"/>
-                                          <input id="rating-3" class="rating__input rating__input-3" type="radio" name="rating" value="3"/>
-                                          <input id="rating-4" class="rating__input rating__input-4" type="radio" name="rating" value="4"/>
-                                          <input id="rating-5" class="rating__input rating__input-5" type="radio" name="rating" value="5"/>
+                                          <input id="rating-1" class="rating__input rating__input-1" type="radio" name="rating" value="1" onClick={() => setRating(1)}/>
+                                          <input id="rating-2" class="rating__input rating__input-2" type="radio" name="rating" value="2" onClick={() => setRating(2)}/>
+                                          <input id="rating-3" class="rating__input rating__input-3" type="radio" name="rating" value="3" onClick={() => setRating(3)}/>
+                                          <input id="rating-4" class="rating__input rating__input-4" type="radio" name="rating" value="4" onClick={() => setRating(4)}/>
+                                          <input id="rating-5" class="rating__input rating__input-5" type="radio" name="rating" value="5" onClick={() => setRating(5)}/>
                                           <label class="rating__label" for="rating-1">
                                             <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
                                               <g transform="translate(16,16)">
@@ -200,19 +200,11 @@ function DashboardPhoto({ photo, onDelete }) {
                                           <p class="rating__display" data-rating="4" hidden>Good</p>
                                           <p class="rating__display" data-rating="5" hidden>Excellent</p>
                                         </div>
-                                      </form>
+                                      </div>
 
-                                    <div className='starReviewContainer d-flex'>
-                                      <i className="bi bi-star" onClick={() => setRating(1)}></i>
-                                      <i className="bi bi-star" onClick={() => setRating(2)}></i>
-                                      <i className="bi bi-star" onClick={() => setRating(3)}></i>
-                                      <i className="bi bi-star" onClick={() => setRating(4)}></i>
-                                      <i class="bi bi-star" onClick={() => setRating(5)}></i>
-                                    </div>
                                     <br></br>
                                     <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
-                                    <br></br>
                                 </div>
                             </div>
                         </form>
