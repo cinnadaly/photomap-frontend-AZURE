@@ -73,7 +73,7 @@ function Login({ setIsAuthenticated, setUser }) {
                     <input type="password" name="password" id="disabledTextInput" class="form-control" placeholder="password" />
                   </div>
                   <button type="submit" class="btn btn-primary">Login</button>
-                  <button onClick={redirect("/Signup")} class="btn btn-primary">Create new account</button>
+                  <button type="submit" onClick={() => navigate("/Signup")} class="btn btn-primary">Create new account</button>
 
                 </fieldset>
               </form>
