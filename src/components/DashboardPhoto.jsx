@@ -18,12 +18,45 @@ function DashboardPhoto({ photo, onDelete }) {
 
 
   const handleEditReview = async () => {
-      console.log("edit");
-      console.log([comment, rating, reviewID]);
+    console.log("edit");
+    const body = {
+        comment: comment,
+        rating: rating
+      };
+    try{
+      fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews/${reviewID}`, {
+        method: "PUT",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(body)
+      }).then((response) => {
+        return response.json();
+      }).then((data) => {
+        console.log(data);
+        if(data.status === 0){
+          Swal.fire({
+              icon: "success",
+              title: "Comment updated!",
+              showConfirmButton: false,
+              timer: 1000
+          });
+        }else if(data.status === 1){
+          Swal.fire({
+              icon: "error",
+              title: "Update error!",
+              showConfirmButton: false,
+              timer: 2000
+          });
+        }});
+    }catch(error){
+
+    }
   }
   const handleDeleteReview = async () => {
-      console.log("Delete");
-      console.log([reviewID]);
+    console.log("Delete");
+    console.log([reviewID]);
   }
 
   const handleSubmit = async (e) => {
