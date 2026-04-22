@@ -25,6 +25,7 @@ function DashboardPhoto({ photo, onDelete }) {
       formData.append("rating", rating);//rating hardcoded
       formData.append("userID", userID);
       console.log([comment, locationID, rating, userID]);
+
       try {
           const response = await fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/reviews", {
               method: "POST",
