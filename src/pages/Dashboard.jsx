@@ -12,17 +12,17 @@ function Dashboard() {
 
     //delete image
     const handleRemovePhoto = async (id) => {
-        await fetch(`https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/${id}`, {
+        await fetch(`https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/photos/${id}`, {
             method: "DELETE",
             credentials: "include",
         }).then(() => {
-          setPhotos(prev => prev.filter(photo => photo.id !== id));
-          Swal.fire({
-              icon: "success",
-              title: "Comment added!",
-              showConfirmButton: false,
-              timer: 1000
-          });
+            setPhotos(prev => prev.filter(photo => photo.id !== id));
+            Swal.fire({
+                icon: "success",
+                title: "Comment added!",
+                showConfirmButton: false,
+                timer: 1000
+            });
         });
     };
 
@@ -34,7 +34,7 @@ function Dashboard() {
     const [reviewData, setReviewData] = useState(null);
 
     useEffect(() => {
-        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos/reviews", {
+        fetch("https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/photos/reviews", {
             credentials: "include",
         })
             .then((response) => {
@@ -46,20 +46,20 @@ function Dashboard() {
             })
             .catch((err) => console.log(err))
     }, [])
-/*
-    useEffect(() => {
-        fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/locations", {
-            credentials: "include",
-        })
-            .then((response) => {
-                return response.json();
+    /*
+        useEffect(() => {
+            fetch("https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/locations", {
+                credentials: "include",
             })
-            .then((data) => {
-                console.log(data);
-                reviewData(data.data)
-            })
-            .catch((err) => console.log(err))
-    }, [])*/
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    reviewData(data.data)
+                })
+                .catch((err) => console.log(err))
+        }, [])*/
 
     //insert of a new photo file
     const handleSubmit = async (e) => {
@@ -70,21 +70,21 @@ function Dashboard() {
         formData.append("title", title);
         formData.append("description", description);
         try {
-            fetch("https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/photos", {
+            fetch("https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/photos", {
                 method: "POST",
                 credentials: "include",
                 body: formData,
             }).then((response) => {
                 return response.json()
             }).then((data) => {
-                if(data.status === 1){
+                if (data.status === 1) {
                     Swal.fire({
                         icon: "error",
                         title: "No GPS data in this image!",
                         showConfirmButton: false,
                         timer: 2000
                     });
-                }else{
+                } else {
                     Swal.fire({
                         icon: "success",
                         title: "Image Uploaded!",
@@ -95,7 +95,7 @@ function Dashboard() {
             }).catch((error) => {
                 console.error("Error:", error);
             });
-        } catch(error){
+        } catch (error) {
             console.error("Error:", error);
         }
     }
@@ -126,7 +126,7 @@ function Dashboard() {
                         photos.map((photo) => (
                             <DashboardPhoto key={photo.id} photo={photo} onDelete={handleRemovePhoto} />
                         ))
-                       //console.log(photos)
+                        //console.log(photos)
                     }
                 </div>
             </div>

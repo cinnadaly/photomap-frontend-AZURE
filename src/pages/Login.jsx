@@ -27,7 +27,7 @@ function Login({ setIsAuthenticated, setUser }) {
     const data = Object.fromEntries(formData);
     console.log(data)
     // Server-side logic or client-side logic in a Transition
-    const response = await fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/login', {
+    const response = await fetch('https://photomap-backend-azure-hhhhfabcdyesb6e0.westus3-01.azurewebsites.net/login', {
       method: 'POST',
       credentials: 'include',
       headers: {
