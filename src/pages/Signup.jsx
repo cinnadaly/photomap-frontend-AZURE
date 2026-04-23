@@ -5,16 +5,16 @@ function Signup({ setIsAuthenticated, setUser }) {
 
     const navigate = useNavigate();
 
-    const myAction = async (formData) => {
+    const mySignup = async (formData) => {
         const data = Object.fromEntries(formData);
         console.log(data);
 
-        const response = await fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/users', {
+        const response = await fetch('https://photomap-e0h6fnh3hxfscbc8.westus3-01.azurewebsites.net/signup', {
             method: 'POST',
+            credentials: "include",
             headers: {
                 'Content-Type': 'application/json',
             },
-            credentials: "include",
             body: JSON.stringify(data)
         });
 
@@ -46,7 +46,7 @@ function Signup({ setIsAuthenticated, setUser }) {
                             <form onSubmit={async (e) => {
                                 e.preventDefault();
                                 const formData = new FormData(e.target);
-                                await myAction(formData);
+                                await mySignup(formData);
                             }}>
                                 <fieldset>
                                     <legend>Sign Up</legend>
@@ -71,8 +71,8 @@ function Signup({ setIsAuthenticated, setUser }) {
                                         <input type="password" name="password" className="form-control" placeholder="Password" required />
                                     </div>
 
+                                    <button type="button" onClick={() => navigate("/login")} class="btn btn-dark ms-2">Return to login</button>
                                     <button type="submit" className="btn btn-primary">Create Account</button>
-                                    <button type="button" onClick={() => navigate("/login")} class="btn btn-primary ms-2">Return to login</button>
                                 </fieldset>
                             </form>
                         </div>
