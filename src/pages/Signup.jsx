@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../components/HomeMap.css";
 
-function Signup() {
+function Signup({ setIsAuthenticated, setUser }) {
 
     const navigate = useNavigate();
 
@@ -18,13 +18,12 @@ function Signup() {
         });
 
         if (response.ok) {
-            Swal.fire({
-                icon: "success",
-                title: "User created!",
-                showConfirmButton: false,
-                timer: 1000
-            });
-            navigate("/login"); //after register go to log in
+            //test
+            const data = await response.json();
+            localStorage.setItem("user", JSON.stringify(data.user)); //test
+            setIsAuthenticated(true);
+            console.log("created user and logged in");
+            navigate("/dashboard");
         } else {
             const errorData = await response.json();
             console.log(errorData);
@@ -72,6 +71,7 @@ function Signup() {
                                     </div>
 
                                     <button type="submit" className="btn btn-primary">Create Account</button>
+                                    <button type="button" onClick={() => navigate("/login")} class="btn btn-primary ms-2">Return to login</button>
                                 </fieldset>
                             </form>
                         </div>
